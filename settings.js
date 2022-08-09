@@ -1,12 +1,3 @@
-//═══════════════════════════════════════════════════════//
-//If you want to recode, reupload
-//or copy the codes/script,
-//pls give credit
-//no credit? i will take action immediately
-//© 2022 Xeon Bot Inc. Doge Bot 
-//Thank you to Lord Buddha, Family and Myself
-//════════════════════════════//
-
 const fs = require('fs')
 const chalk = require('chalk')
 
@@ -21,20 +12,23 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['916909137213']
-global.premium = ['916909137213']
-global.ownernomer = '916909137213'
-global.ownername = '🦄Dream Guy Xeon'
-global.botname = 'Cheems Bot MD V2'
-global.footer = 'Xeon Bot Inc.'
-global.ig = 'https://github.com/DGXeon'
-global.region = 'India, NorthEast, Mizoram'
-global.sc = 'https://github.com/DGXeon/CheemsBot-MD2'
-global.myweb = 'https://youtu.be/imFIX-Wrt3s'
-global.packname = 'Cheems Bot'
-global.author = '🦄Dream Guy Xeon'
+global.owner = ['918416093656']
+global.premium = ['918416093656']
+global.ownernomer = '918416093656'
+global.ownername = 'Herbert Suantak'
+global.botname = 'HBWABot'
+global.footer = 'HBWABot'
+global.ig = 'https://www.instagam.com/herbert_suantak2'
+global.region = 'India, Mizoram, Saitual, Phuaibuang'
+global.sc = 'https://www.instagram.com/herbert/suantak2'
+global.hbmodsapk = 'https://herbert70.blogspot.com'
+global.grpj = 'https://chat.whatsapp.com/ECtguf6pmRR1eXyeQ76jvO'
+global.grpj2 = 'https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA'
+global.myweb = 'https://youtube.com/c/HB-SuantakOfficial_channel'
+global.packname = 'Siamted by'
+global.author = 'HBWABot'
 global.sessionName = 'session'
-global.prefa = ['','!','.','🐦','🐤','🗿']
+global.prefa = ['','!','.','🦒','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
     success: 'Done ✓',
@@ -44,13 +38,13 @@ global.mess = {
     group: 'Feature Used Only For Groups!',
     private: 'Features Used Only For Private Chat!',
     bot: 'This Feature Is Only For Bot',
-    wait: 'In Process...',
+    wait: 'In process...',
     error: 'Error! Maybe Api Key Is Expired🤔!',
     endLimit: 'Your Daily Limit Has Expired, The Limit Will Be Reset Every 12 Hours',
 }
     global.limitawal = {
     premium: "Infinity",
-    free: 2,
+    free: 12,
     monayawal: 1000
 }
    global.rpg = {
@@ -61,7 +55,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./XeonMedia/cheemspic.jpg')
+global.thumb = fs.readFileSync('./HBMedia/herbert.jpg')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
