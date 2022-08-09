@@ -203,11 +203,11 @@ module.exports = HBModsMd = async (HBModsMd, m, chatUpdate, store) => {
 	
 	//group target by HBMods\\
 const reply = (teks) => {
-            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/LS1Xx3fSqg7FpSYSjKWhL5"}}}, { quoted: m})
+            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join HBWABot Group`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/ECtguf6pmRR1eXyeQ76jvO"}}}, { quoted: m})
         }
         
         const replay = (teks) => {
-            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join HBWABot Group`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/ECtguf6pmRR1eXyeQ76jvO"}}}, { quoted: m})
         }
 	
         //Public & Self\\
