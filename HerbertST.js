@@ -4045,7 +4045,8 @@ await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 │✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
 └┬──────────────┈ ⳹
    │✑  Please Select The Button Below
-   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All Menu🍱","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu🍱","id": 'command'}{"displayText": "Owner🌚","id": 'owner'}}] )
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All menu","id": 'allmenj'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}}] )
+break
 break
 case 'alive': case 'bot':
 var unicorn = await getBuffer(picak+'HBWABot')
@@ -4066,7 +4067,8 @@ await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 │✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
 └┬──────────────┈ ⳹
    │✑  Please Select The Button Below
-   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All Menu🍱","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu🍱","id": 'command'}{"displayText": "Owner🌚","id": 'owner'}}] )
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All menu","id": 'allmenj'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}}] )
+break
 break
 case 'horoscopemenu':
 var unicorn = await getBuffer(picak+'Horoscope Menu')
