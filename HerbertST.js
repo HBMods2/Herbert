@@ -203,12 +203,17 @@ module.exports = HBModsMd = async (HBModsMd, m, chatUpdate, store) => {
 	
 	//group target by HBMods\\
 const reply = (teks) => {
-            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join HBWABot Group`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/ECtguf6pmRR1eXyeQ76jvO"}}}, { quoted: m})
-        }
-        
-        const replay = (teks) => {
-            HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Join HBWABot Group`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": "https://chat.whatsapp.com/ECtguf6pmRR1eXyeQ76jvO"}}}, { quoted: m})
-        }
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT YOUTUBE CHANNEL`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.ytchannel}`}}}, { quoted: m})
+}
+
+const replay = (teks) => {
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.group2}`}}}, { quoted: m})
+}
+
+const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
+            let po = HBModsMd.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Pilih Disini","footerText": "HBMods Channel","listType": "SINGLE_SELECT","sections": list, quoted:mek}}, {})
+            return HBModsMd.relayWAMessage(po, {waitForAck: true, quoted:mek})
+        }	    
 	
         //Public & Self\\
         if (!HBModsMd.public) {
@@ -258,7 +263,7 @@ const reply = (teks) => {
         }
         }
 
-        //auto reply by HBMods 🦄
+        //auto reply by HBMods 
         for (let anji of setik){
 				if (budy === anji){
 					result = fs.readFileSync(`./HBMedia/sticker/${anji}.webp`)
@@ -289,7 +294,7 @@ const reply = (teks) => {
       return
       }
         
-        //media detect by 🦄HBMods\\
+        //media detect by HBMods\\
 		const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
 		const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 		const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
@@ -1308,7 +1313,7 @@ case 'when':
 HBModsMd.sendMessage(from, { text: `Question : ${q}\nAnswer : *${kapankah}*` }, { quoted: m })
 					break
 case 'wangy':
-              if (!text) return replay(`Use Text, Example : ${prefix + command} cheems`)
+              if (!text) return replay(`Use Text, Example : ${prefix + command} HBWABot`)
               qq = q.toUpperCase()
               awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah the smell of hair ${qq} smelly i want to smell the fragrance ${qq} AAAAAAAAH ~ Her hair.... aaah i want to stroke her hair too ~~ AAAAAH ${qq} first time out in anime is cute too ❤️ ❤️ ❤️ so AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️what ? ${qq} it's not real ? Just HELL you say ? no, no no no no no no no no no no no no no no no !! I DON'T CARE ABOUT THE REALITY, I DON'T CARE. ❤️ ❤️ ❤️ ${qq} me ... ${qq} on the laptop watching me, ${qq} .. you believe in me ? aaaaaaaaaaah thanks ${q} I don't want to give up ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH I STILL HAVE ${qq} ALSO NOT THE SAME AAAAAAAAAAAAAAH`
              reply(awikwok)
@@ -1528,14 +1533,14 @@ let buttonsVote = [
 ┌〔 UPVOTE 〕
 │ 
 ┃╠ Total: ${vote[m.chat][1].length}
-${vote[m.chat][1].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][1].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
 ┌〔 DEVOTE 〕
 │ 
 ┃╠ Total: ${vote[m.chat][2].length}
-${vote[m.chat][2].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][2].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
@@ -1570,14 +1575,14 @@ ${vote[m.chat][2].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('
 ┌〔 UPVOTE 〕
 │ 
 ┃╠ Total: ${vote[m.chat][1].length}
-${vote[m.chat][1].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][1].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
 ┌〔 DEVOTE 〕
 │ 
 ┃╠ Total: ${vote[m.chat][2].length}
-${vote[m.chat][2].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][2].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
@@ -1608,14 +1613,14 @@ teks_vote = `*「 VOTE 」*
 ┌〔 UPVOTE 〕
 │ 
 ┃╠ Total: ${upvote.length}
-${vote[m.chat][1].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][1].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
 ┌〔 DEVOTE 〕
 │ 
 ┃╠ Total: ${devote.length}
-${vote[m.chat][2].map((v, i) => `┃╠ 🟣${i + 1}. @${v.split`@`[0]}`).join('\n')}
+${vote[m.chat][2].map((v, i) => `┃╠🪄${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
@@ -1766,7 +1771,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 HBWA Bot Broadcast 」\n\n${text}`
                       HBModsMd.send5ButImg(i, txt, HBModsMd.user.name, global.thumb, btn)
                     }
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
@@ -1800,7 +1805,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 HBWA Bot Broadcast 」\n\n${text}`
                       HBModsMd.send5ButImg(yoi, txt, HBModsMd.user.name, global.thumb, btn)
 		}
 		reply('Broadcast Success')
@@ -1833,7 +1838,7 @@ break
                  let teks = `⬣ *PERSONAL CHAT LIST*\n\nTotal Chat : ${anu.length} Chat\n\n`
                  for (let i of anu) {
                      let nama = store.messages[i].array[0].pushName
-                     teks += `🐕 *Name :* ${nama}\n🐕 *User :* @${i.split('@')[0]}\n🐕 *Chat :* https://wa.me/${i.split('@')[0]}\n\n────────────────────────\n\n`
+                     teks += ` *Name :* ${nama}\n *User :* @${i.split('@')[0]}\n *Chat :* https://wa.me/${i.split('@')[0]}\n\n────────────────────────\n\n`
                  }
                  HBModsMd.sendTextWithMentions(m.chat, teks, m)
              }
@@ -1843,7 +1848,7 @@ break
                  let teks = `⬣ *GROUP CHAT LIST*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
                      let metadata = await HBModsMd.groupMetadata(i)
-                     teks += `🐕 *Name :* ${metadata.subject}\n🐕 *Owner :* @${metadata.owner.split('@')[0]}\n🐕 *ID :* ${metadata.id}\n🐕 *Made :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n🐕 *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`
+                     teks += ` *Name :* ${metadata.subject}\n *Owner :* @${metadata.owner.split('@')[0]}\n *ID :* ${metadata.id}\n *Made :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`
                  }
                  HBModsMd.sendTextWithMentions(m.chat, teks, m)
              }
@@ -1871,6 +1876,43 @@ break
                 }
             }
             break
+case 'attp': {
+if (isBan) throw mess.ban
+           if (!text) throw `*Example : ${prefix + command} hi Herbert*`
+           if (!isInventoryLimit){ addInventoriLimit(m.sender) }
+            if (isLimit < 1) return m.reply(mess.endLimit)
+            kurangLimit(m.sender, 1)
+            m.reply(`*_In processing..._*`)
+           await HBModsMd.sendMedia(m.chat, `https://hardianto.xyz/api/maker/attp?text=${text}&apikey=hardianto`, 'HB', 'WABOT', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
+         }
+         break
+case 'attp4': {
+if (isBan) throw mess.ban
+           if (!text) throw `*Example : ${prefix + command} hi herbert*`
+           if (!isInventoryLimit){ addInventoriLimit(m.sender) }
+           if (isLimit < 1) return m.reply(mess.endLimit)
+           kurangLimit(m.sender, 1)
+           m.reply(`*_In processing..._*`)
+           await HBModsMd.sendMedia(m.chat, `https://api.xteam.xyz/attp?file&teks=${text}`, 'HBWABot', m, {asSticker: true}).catch((err) => m.reply('*error while sending sticker*'))
+                     }
+                     break
+case 'ttp1': {
+if (isBan) throw mess.ban
+if (!text) return m.reply(`*NEED TEXT*`)
+if (!isInventoryLimit){ addInventoriLimit(m.sender) }
+            if (isLimit < 1) return m.reply(mess.endLimit)
+            kurangLimit(m.sender, 1)
+            m.reply(`*_In processing..._*`)
+HBModsMd.sendMessage(m.chat, { sticker : { url : `https://cililitan.herokuapp.com/api/texttopng?teks=${text}`}, quoted: m }).catch((err) => m.reply('*error while sending sticker*'))
+} 
+break
+case 'ttp2': {
+if (isBan) throw mess.ban
+           if (!text) throw `Example : ${prefix + command} text`
+           await HBModsMd.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'HB', 'WABot', m, {asSticker: true})
+         }
+break
+
 case 'smemex': case 'stickermemex': case 'stickmemex': {
 let { TelegraPh } = require('./lib/uploader')
 if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *Text*`)
@@ -1992,17 +2034,22 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case 'imagenobgxxx': case 'removebgxxx': case 'remove-bgxxx': {
-	    if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-	    if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-	    if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
+             case 'imagenobg': case 'removebg': case 'remove-bg': {
+            if (isBan) throw mess.ban
+       // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)    
+	    if (!quoted) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	    if (!/image/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	    if (/webp/.test(mime)) throw `*Send/Reply Image With Caption* ${prefix + command}`
+	    if (!isInventoryLimit){ addInventoriLimit(m.sender) }
+            if (isLimit < 1) return m.reply(mess.endLimit)
+            kurangLimit(m.sender, 1)
+            m.reply(`*_In processing..._*`)
 	    let remobg = require('remove.bg')
 	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
 	    hmm = await './src/remobg-'+getRandom('')
 	    localFile = await HBModsMd.downloadAndSaveMediaMessage(quoted, hmm)
 	    outputFile = await './src/hremo-'+getRandom('.png')
-	    reply(mess.wait)
 	    remobg.removeBackgroundFromImageFile({
 	      path: localFile,
 	      apiKey: apinobg,
@@ -2017,20 +2064,14 @@ break
 	    })
 	    }
 	    break
-	    case 'yts': case 'ytsearch': {
-                if (!text) return replay(`Example : ${prefix + command} Anime Story Whatsapp`)
-                let yts = require("yt-search")
-                let search = await yts(text)
-                let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
-                let no = 1
-                for (let i of search.all) {
-                    teks += `🌚 No : ${no++}\n🌚 Type : ${i.type}\n🌚 Video ID : ${i.videoId}\n🌚 Title : ${i.title}\n🌚 Views : ${i.views}\n🌚 Duration : ${i.timestamp}\n🌚 Uploaded On : ${i.ago}\n🌚 Author : ${i.author.name}\n🌚 Url : ${i.url}\n\n─────────────────\n\n`
-                }
-                HBModsMd.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
-            }
-            break
+case 'yts': function _0x2619(_0xa712bd,_0x3cc493){const _0x2f0691=_0x2f06();return _0x2619=function(_0x261933,_0x59f241){_0x261933=_0x261933-0x1a2;let _0x917ca7=_0x2f0691[_0x261933];return _0x917ca7;},_0x2619(_0xa712bd,_0x3cc493);}function _0x2f06(){const _0x55f35b=['5882437fKRgcs','CLICK\x20HERE','*YouTube\x20Search*\x20MP3⬤:\x20','4hJSzkU','12pZvqNm','814707ccVmTU','\x20story\x20wa\x20anime','all','ytmp3\x20','4372FqRNJf','10410rOdoIb','9jVLgZE','221753YSKLus','description','228MgPUWT','1606370nMGtMJ','yt-search','ytmp4\x20','push','chat','title','875MAamOM','VIDEO\x20MP4⬤:\x20','3693992HrmsNO','url','sendMessage','HERE\x20IS\x20YOUR\x20RESULTS\x20FROM\x20*','Example\x20:\x20'];_0x2f06=function(){return _0x55f35b;};return _0x2f06();}const _0x494681=_0x2619;(function(_0x2f990d,_0x3dab42){const _0x5d3d5d=_0x2619,_0x91ff83=_0x2f990d();while(!![]){try{const _0x5d2979=-parseInt(_0x5d3d5d(0x1bc))/0x1*(parseInt(_0x5d3d5d(0x1a5))/0x2)+-parseInt(_0x5d3d5d(0x1b8))/0x3*(parseInt(_0x5d3d5d(0x1b6))/0x4)+parseInt(_0x5d3d5d(0x1ac))/0x5*(parseInt(_0x5d3d5d(0x1bd))/0x6)+-parseInt(_0x5d3d5d(0x1a3))/0x7+parseInt(_0x5d3d5d(0x1ae))/0x8*(parseInt(_0x5d3d5d(0x1a2))/0x9)+-parseInt(_0x5d3d5d(0x1a6))/0xa+parseInt(_0x5d3d5d(0x1b3))/0xb*(parseInt(_0x5d3d5d(0x1b7))/0xc);if(_0x5d2979===_0x3dab42)break;else _0x91ff83['push'](_0x91ff83['shift']());}catch(_0xd3cf2c){_0x91ff83['push'](_0x91ff83['shift']());}}}(_0x2f06,0x527b8));{if(!text)throw _0x494681(0x1b2)+(prefix+command)+_0x494681(0x1b9);let yts=require(_0x494681(0x1a7)),search=await yts(text),sections=[],listmenu=[_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x0][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x2]['url'],'ytmp3\x20'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1af)],'ytmp4\x20'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x7][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x8]['url'],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x9][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xa][_0x494681(0x1af)],'ytmp3\x20'+search[_0x494681(0x1ba)][0xb]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xc]['url'],_0x494681(0x1bb)+search['all'][0xd][_0x494681(0x1af)],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1af)],'ytmp3\x20'+search['all'][0xf]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x11]['url'],_0x494681(0x1a8)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1af)],_0x494681(0x1bb)+search[_0x494681(0x1ba)][0x13][_0x494681(0x1af)]],listmenuu=[_0x494681(0x1ad)+search['all'][0x0][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x1][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x2][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x3][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x4][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x5][_0x494681(0x1ab)],_0x494681(0x1ad)+search['all'][0x6][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x7]['title'],'VIDEO\x20MP4⬤:\x20'+search[_0x494681(0x1ba)][0x8][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xa]['title'],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0xb][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xc][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search['all'][0xd][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0xe][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0xf][_0x494681(0x1ab)],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x10][_0x494681(0x1ab)],_0x494681(0x1b5)+search[_0x494681(0x1ba)][0x11]['title'],_0x494681(0x1ad)+search[_0x494681(0x1ba)][0x12][_0x494681(0x1ab)],'SONG\x20MP3⬤:\x20'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1ab)]],listmenuuu=['\x0a'+search[_0x494681(0x1ba)][0x0][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x1]['description'],'\x0a'+search[_0x494681(0x1ba)][0x2][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x3][_0x494681(0x1a4)],'\x0a'+search['all'][0x4]['description'],'\x0a'+search['all'][0x5][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x6][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x7]['description'],'\x0a'+search[_0x494681(0x1ba)][0x8]['description'],'\x0a'+search[_0x494681(0x1ba)][0x9][_0x494681(0x1a4)],'\x0a'+search['all'][0xa][_0x494681(0x1a4)],'\x0a'+search['all'][0xb][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xc][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xd][_0x494681(0x1a4)],'\x0a'+search['all'][0xe][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0xf]['description'],'\x0a'+search[_0x494681(0x1ba)][0x10]['description'],'\x0a'+search['all'][0x11]['description'],'\x0a'+search[_0x494681(0x1ba)][0x12][_0x494681(0x1a4)],'\x0a'+search[_0x494681(0x1ba)][0x13][_0x494681(0x1a4)]],nombor=0x1,startnum=0x0,startnumm=0x0;for(let x of listmenu){const list={'title':'RESULT\x20NUMBER\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':''+listmenuuu[startnumm++],'rowId':''+prefix+x}]};sections[_0x494681(0x1a9)](list);}const sendm=HBModsMd[_0x494681(0x1b0)](m[_0x494681(0x1aa)],{'text':'\x0a\x0a*CHEERS\x20TO\x20THAT*','footer':botname,'title':_0x494681(0x1b1)+text+'*\x20_select\x20song\x20or\x20video\x20below_','buttonText':_0x494681(0x1b4),'sections':sections},{'quoted':m});}
+     break
+case 'ytsaudio': case 'ytsmusic': case 'ytsearchmusic': function _0x46a1(){const _0x3cb4a8=['44fHOPfg','chat','ago','ban','4252496icAfHA','yt-search','description','\x20guspy\x20warior\x20ita\x20seunononga','34092pFHiyl','\x0a*LINK:*\x20','12epfryU','views','74qcPxDS','title','LIST\x20OF\x20AUDIOS','133001HPuagx','url','2461554eExvyT','push','677018pTstMj','42513SkDmLN','\x0a*VIEWS:*\x20','name','author','ytmp3\x20','546sLAwAk','\x0a*DURATION:*\x20','\x0a*UPLOAD:*\x20','timestamp','38900mFwmYh','20kEdwTq'];_0x46a1=function(){return _0x3cb4a8;};return _0x46a1();}function _0x35ef(_0x1538a1,_0x2458a4){const _0x46a1f5=_0x46a1();return _0x35ef=function(_0x35ef79,_0x36917d){_0x35ef79=_0x35ef79-0xf2;let _0x553e0e=_0x46a1f5[_0x35ef79];return _0x553e0e;},_0x35ef(_0x1538a1,_0x2458a4);}const _0x49fc3c=_0x35ef;(function(_0x180268,_0x1db291){const _0x90f637=_0x35ef,_0x1f645e=_0x180268();while(!![]){try{const _0xfa5e79=parseInt(_0x90f637(0x103))/0x1+-parseInt(_0x90f637(0xfc))/0x2*(parseInt(_0x90f637(0x104))/0x3)+parseInt(_0x90f637(0x10f))/0x4*(-parseInt(_0x90f637(0x10d))/0x5)+parseInt(_0x90f637(0xf8))/0x6*(parseInt(_0x90f637(0x109))/0x7)+-parseInt(_0x90f637(0xf4))/0x8+-parseInt(_0x90f637(0x101))/0x9*(-parseInt(_0x90f637(0x10e))/0xa)+parseInt(_0x90f637(0xff))/0xb*(-parseInt(_0x90f637(0xfa))/0xc);if(_0xfa5e79===_0x1db291)break;else _0x1f645e['push'](_0x1f645e['shift']());}catch(_0x54be1f){_0x1f645e['push'](_0x1f645e['shift']());}}}(_0x46a1,0x7d682));{if(isBan)throw mess[_0x49fc3c(0xf3)];if(!text)throw'Example\x20:\x20'+(prefix+command)+_0x49fc3c(0xf7);let yts=require(_0x49fc3c(0xf5)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i['title'],'rows':[{'title':i[_0x49fc3c(0xfd)]+'\x0a','rowId':prefix+_0x49fc3c(0x108)+i[_0x49fc3c(0x100)],'description':i[_0x49fc3c(0xf6)]+_0x49fc3c(0x10b)+i[_0x49fc3c(0xf2)]+'\x0a*CHANNEL:*\x20'+i[_0x49fc3c(0x107)][_0x49fc3c(0x106)]+_0x49fc3c(0x105)+i[_0x49fc3c(0xfb)]+_0x49fc3c(0x10a)+i[_0x49fc3c(0x10c)]+_0x49fc3c(0xf9)+i[_0x49fc3c(0x100)]}]};sections[_0x49fc3c(0x102)](list);}const sendm=HBModsMd['sendMessage'](m[_0x49fc3c(0x110)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20Here\x20are\x20the\x20search\x20results\x20from\x20ytsaudio','buttonText':_0x49fc3c(0xfe),'sections':sections},{'quoted':m});}
+                  break
+case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=HBModsMd[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
+                  break
         case 'google': {
-                if (!text) return reply(`Example : ${prefix + command} cheems shiba inu`)
+                if (!text) return reply(`Example : ${prefix + command} car `)
                 let google = require('google-it')
                 google({'query': text}).then(res => {
                 let teks = `Google Search Title : ${text}\n\n`
@@ -2044,7 +2085,7 @@ break
                 }
                 break
         case 'gimage': case 'googleimage': {
-        if (!text) return reply(`Example : ${prefix + command} cheems`)
+        if (!text) return reply(`Example : ${prefix + command} HBWABot`)
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
         n = result
@@ -2844,34 +2885,7 @@ To Download Media, Please Click One Of The Buttons Below Or Enter The ytmp3/ytmp
 		let result = anu[Math.floor(Math.random() * anu.length)]
 		HBModsMd.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
-	    break
-		case 'iqraxxx': {
-		oh = `Example : ${prefix + command} 3\n\nIQRA Which Is Available : 1,2,3,4,5,6`
-		if (!text) return reply(oh)
-		yy = await getBuffer(`https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`)
-		HBModsMd.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => reply(oh))
-		}
-		break
-		case 'juzamma': {
-		if (args[0] === 'pdf') {
-		reply(mess.wait)
-		HBModsMd.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
-		} else if (args[0] === 'docx') {
-		reply(mess.wait)
-		HBModsMd.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.docx'}, mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', fileName: 'juz-amma-arab-latin-indonesia.docx'}, {quoted:m})
-		} else if (args[0] === 'pptx') {
-		reply(mess.wait)
-		HBModsMd.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pptx'}, mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', fileName: 'juz-amma-arab-latin-indonesia.pptx'}, {quoted:m})
-		} else if (args[0] === 'xlsx') {
-		reply(mess.wait)
-		HBModsMd.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
-		} else {
-		reply(`What Format Do You Want? ? Example : ${prefix + command} pdf
-
-Available Formats: pdf, docx, pptx, xlsx`)
-		}
-		}
-		break
+	    break		
 		case 'hadisxxx': case 'hadistxxx': {
 		if (!args[0]) return reply(`Example:
 ${prefix + command} bukhari 1
@@ -3034,7 +3048,7 @@ View List Of Messages With ${prefix}listmsg`)
 	        let seplit = Object.entries(global.db.data.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = '「 DATABASE LIST 」\n\n'
 		for (let i of seplit) {
-		    teks += `🐕 *Name :* ${i.nama}\n🐕 *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
+		    teks += ` *Name :* ${i.nama}\n *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
 	        }
 	        reply(teks)
 	    }
@@ -3272,127 +3286,7 @@ Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
                     break
-                    case 'alive': case 'bot':{
-                           	timestampe = speed();
-latensie = speed() - timestampe
- anu = ` `
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: {
-                        hydratedTemplate: {
-                            hydratedContentText: anu,
-                            locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./HBMedia/herbert.jpg')},
-                            hydratedFooterText: `┌─❖
-│「 Hi 👋 」
-└┬❖ 「 ${pushname} 」
-┌┤✑  HBWABot With You Forever 
-││✑  🌚🖐️!!
-│└───────────────┈ ⳹
-│ 「 BOT INFO 」
-│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
-│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
-│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
-│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
-│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
-│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
-└┬──────────────┈ ⳹
-   │✑  Please Select The Button Below
-   └───────────────┈ ⳹`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: '𝗬𝗼𝘂𝗧𝘂𝗯𝗲',
-                                    url: `${myweb}`
-                                }
-                            }, {
-                            	urlButton: {
-                                displayText: '𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺',
-                                    url: `${sc}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'All Menu🍱',
-                                    id: `${prefix}allmenu`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: 'List Menu🍱',
-                                    id: `${prefix}command`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: 'Owner👤',
-                                    id: `${prefix}owner`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                }
-break
-            case 'list': case 'menu': case 'help': case '?': {
-            	timestampe = speed();
-latensie = speed() - timestampe
-                anu = ``
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: {
-                        hydratedTemplate: {
-                            hydratedContentText: anu,
-                            locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./HBMedia/herbert.jpg')}, 
-                            hydratedFooterText: `
-┌─❖
-│「 Hi 👋 」
-└┬❖ 「 ${pushname} 」
-┌┤✑  How Are You? 😄
-│└───────────────┈ ⳹
-│ 「 BOT INFO 」
-│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
-│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
-│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
-│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
-│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
-│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
-└┬──────────────┈ ⳹
-   │✑  Please Select The Button Below
-   └───────────────┈ ⳹`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: '𝗬𝗼𝘂𝗧𝘂𝗯𝗲',
-                                    url: `${myweb}`
-                                }
-                            }, {
-                            	urlButton: {
-                                displayText: '𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺',
-                                    url: `${sc}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'All Menu🍱',
-                                    id: `${prefix}allmenu`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: 'List Menu🍱',
-                                    id: `${prefix}command`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: 'Owner👤',
-                                    id: `${prefix}owner`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
-                }
-                break
-                case 'command': {
+                    case 'command': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hi ${pushname}`,
@@ -3474,8 +3368,8 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"rowId": `${prefix}voicechangermenu`
 										},
 										{
-											"title": "Islamic Menu",
-										"description": "Displays The List Of Islamic Features",
+											"title": "HBMods Menu",
+										"description": "Displays The List Of HBMods Features",
 										"rowId": `${prefix}hbmodsmenu`
 										},
 										{
@@ -3512,251 +3406,255 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-    case 'donate': case 'sewabot': {
-                HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/tVG2FyU.jpeg' }, caption: `*Hi Bro ${m.pushName}*\nDonation section is currently down, I know you are happy😇😇\n` }, { quoted: m })
+	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
+	    if (isBan) throw mess.ban
+                HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/tVG2FyU.jpeg' }, caption: `*Hi ${m.pushName}*\n\n*Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *HBMods Channel:* https://youtube.com/c/HBSuantakOfficialChannel ` }, { quoted: m })
             }
-            break
-            case 'gb': case '.gbwhatsapp': case 'gbwhatsapp': {
-                reply(`*GBWhatsApp Last version Download*\n https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html \n\nYouTube : ${myweb}\nDont Forget To Subscribe`)
+            break     
+            case 'gb': case 'gbwa': case 'gbwhatsapp': {
+	    if (isBan) throw mess.ban
+                HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/ZdpqIPO.png' }, caption: `*GBWhatsApp Last version Download*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html  \n\nYouTube : https://youtube.com/c/HBSuantakOfficialChannel\nDont Forget To Subscribe` }, { quoted: m })
             }
-            break
-            case 'igpro': case '.instagrampro': case 'instagrampro': {
-                reply(`*Instagram Pro Last Version Download*\nhttps://herbert70.blogspot.com/2022/07/instagram-pro.html  \n\nYouTube : ${myweb}\nDont Forget To Subscribe`)
+            break 
+            case 'ytpro': case 'youtubepro': {
+	    if (isBan) throw mess.ban
+                HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/GPIbHx2.png' }, caption: `*YouTube Pro Last version Download*\nhttps://herbert70.blogspot.com/2022/07/youtube-pro.html\n\nYouTube : https://youtube.com/c/HBSuantakOfficialChannel\nDont Forget To Subscribe` }, { quoted: m })
             }
-            break
-            case 'ytpro': case '.youtubepro': case 'youtubepro': {
-                reply(`*YouTube Pro Last version Download*\n https://herbert70.blogspot.com/2022/07/youtube-pro.html \n\nYouTube : ${myweb}\nDont Forget To Subscribe`)
-            }            
-            break
+            break 
+            case 'igpro': case 'instapro': case 'instagrampro': {
+	    if (isBan) throw mess.ban
+                HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/I3jSXAL.png' }, caption: `*Instagram Pro Last version Download*\nhttps://herbert70.blogspot.com/2022/07/instagram-pro.html\n\nYouTube : https://youtube.com/c/HBSuantakOfficialChannel\nDont Forget To Subscribe` }, { quoted: m })
+            }
+            break 
 case 'allmenu': {
   	anu = ` All menu ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 ┏━「 *${botname}* 」━━⭓ 
 ┃╔═══════✪「 MAIN 」
-┃╠ 🟣${prefix}alive
-┃╠ 🟣${prefix}speedtest
-┃╠ 🟣${prefix}ping
-┃╠ 🟣${prefix}owner
-┃╠ 🟣${prefix}menu
-┃╠ 🟣${prefix}delete
-┃╠ 🟣${prefix}chatinfo
-┃╠ 🟣${prefix}quoted
-┃╠ 🟣${prefix}listpc
-┃╠ 🟣${prefix}listgc
-┃╠ 🟣${prefix}donate
-┃╠ 🟣${prefix}report [bug]
+┃╠🪄${prefix}alive
+┃╠🪄${prefix}speedtest
+┃╠🪄${prefix}ping
+┃╠🪄${prefix}owner
+┃╠🪄${prefix}menu
+┃╠🪄${prefix}delete
+┃╠🪄${prefix}chatinfo
+┃╠🪄${prefix}quoted
+┃╠🪄${prefix}listpc
+┃╠🪄${prefix}listgc
+┃╠🪄${prefix}donate
+┃╠🪄${prefix}report [bug]
 ┃╠═══════✪「 OWNER 」	
-┃╠ 🟣${prefix}chat [option]
-┃╠ 🟣${prefix}join [link]
-┃╠ 🟣${prefix}leave
-┃╠ 🟣${prefix}block [user]
-┃╠ 🟣${prefix}unblock [user]
-┃╠ 🟣${prefix}bcgroup [text]
-┃╠ 🟣${prefix}bcall [text]
-┃╠ 🟣${prefix}setppbot [image]
-┃╠ 🟣${prefix}setexif
+┃╠🪄${prefix}chat [option]
+┃╠🪄${prefix}join [link]
+┃╠🪄${prefix}leave
+┃╠🪄${prefix}block [user]
+┃╠🪄${prefix}unblock [user]
+┃╠🪄${prefix}bcgroup [text]
+┃╠🪄${prefix}bcall [text]
+┃╠🪄${prefix}setppbot [image]
+┃╠🪄${prefix}setexif
 ┃╠═══════✪「 GROUP 」	        
-┃╠ 🟣${prefix}grouplink
-┃╠ 🟣${prefix}ephemeral [option]
-┃╠ 🟣${prefix}setgcpp [image]
-┃╠ 🟣${prefix}setname [text]
-┃╠ 🟣${prefix}setdesc [text]
-┃╠ 🟣${prefix}group [text]
-┃╠ 🟣${prefix}editinfo [option]
-┃╠ 🟣${prefix}add [user]
-┃╠ 🟣${prefix}kick [reply/tag]
-┃╠ 🟣${prefix}hidetag [text]
-┃╠ 🟣${prefix}tagall [text]
-┃╠ 🟣${prefix}antilink [on/off]
-┃╠ 🟣${prefix}mute [on/off]
-┃╠ 🟣${prefix}promote [reply/tag]
-┃╠ 🟣${prefix}demote [reply/tag]
-┃╠ 🟣${prefix}vote
-┃╠ 🟣${prefix}devote
-┃╠ 🟣${prefix}upvote
-┃╠ 🟣${prefix}checkvote
-┃╠ 🟣${prefix}delvote
+┃╠🪄${prefix}grouplink
+┃╠🪄${prefix}ephemeral [option]
+┃╠🪄${prefix}setgcpp [image]
+┃╠🪄${prefix}setname [text]
+┃╠🪄${prefix}setdesc [text]
+┃╠🪄${prefix}group [text]
+┃╠🪄${prefix}editinfo [option]
+┃╠🪄${prefix}add [user]
+┃╠🪄${prefix}kick [reply/tag]
+┃╠🪄${prefix}hidetag [text]
+┃╠🪄${prefix}tagall [text]
+┃╠🪄${prefix}antilink [on/off]
+┃╠🪄${prefix}mute [on/off]
+┃╠🪄${prefix}promote [reply/tag]
+┃╠🪄${prefix}demote [reply/tag]
+┃╠🪄${prefix}vote
+┃╠🪄${prefix}devote
+┃╠🪄${prefix}upvote
+┃╠🪄${prefix}checkvote
+┃╠🪄${prefix}delvote
 ┃╠═══════✪「 RPG 」	
-┃╠ 🟣${prefix}hunting
-┃╠ 🟣${prefix}mining
-┃╠ 🟣${prefix}heal
-┃╠ 🟣${prefix}userlimit
-┃╠ 🟣${prefix}profile
-┃╠ 🟣${prefix}inventory
-┃╠ 🟣${prefix}leaderboard
-┃╠ 🟣${prefix}buy [option]
-┃╠ 🟣${prefix}sell [option]
+┃╠🪄${prefix}hunting
+┃╠🪄${prefix}mining
+┃╠🪄${prefix}heal
+┃╠🪄${prefix}userlimit
+┃╠🪄${prefix}profile
+┃╠🪄${prefix}inventory
+┃╠🪄${prefix}leaderboard
+┃╠🪄${prefix}buy [option]
+┃╠🪄${prefix}sell [option]
 ┃╠═════✪「 DOWNLOADER 」	
-┃╠ 🟣${prefix}ytmp3 [url|quality]
-┃╠ 🟣${prefix}ytmp4 [url|quality]
-┃╠ 🟣${prefix}getmusic [yt link]
-┃╠ 🟣${prefix}getvideo [yt link]
-┃╠ 🟣${prefix}umma [query]
-┃╠ 🟣${prefix}joox [query]
-┃╠ 🟣${prefix}soundcloud [url]
+┃╠🪄${prefix}ytmp3 [url|quality]
+┃╠🪄${prefix}ytmp4 [url|quality]
+┃╠🪄${prefix}getmusic [yt link]
+┃╠🪄${prefix}getvideo [yt link]
+┃╠🪄${prefix}umma [query]
+┃╠🪄${prefix}joox [query]
+┃╠🪄${prefix}soundcloud [url]
 ┃╠═══════✪「 SEARCHER 」	
-┃╠ 🟣${prefix}play [query]
-┃╠ 🟣${prefix}song [query]
-┃╠ 🟣${prefix}yts [query]
-┃╠ 🟣${prefix}google [query]
-┃╠ 🟣${prefix}gimage [query]
-┃╠ 🟣${prefix}pinterest [query]
-┃╠ 🟣${prefix}wallpaper [query]
-┃╠ 🟣${prefix}wikimedia [query]
-┃╠ 🟣${prefix}ytsearch [query]
-┃╠ 🟣${prefix}ringtone [query]
-┃╠ 🟣${prefix}webtoon [query]
+┃╠🪄${prefix}play [query]
+┃╠🪄${prefix}song [query]
+┃╠🪄${prefix}yts [query]
+┃╠🪄${prefix}google [query]
+┃╠🪄${prefix}gimage [query]
+┃╠🪄${prefix}pinterest [query]
+┃╠🪄${prefix}wallpaper [query]
+┃╠🪄${prefix}wikimedia [query]
+┃╠🪄${prefix}ytsearch [query]
+┃╠🪄${prefix}ringtone [query]
+┃╠🪄${prefix}webtoon [query]
 ┃╠═══════✪「 RANDOM 」
-┃╠ 🟣${prefix}coffee
-┃╠ 🟣${prefix}animequote (indo)
-┃╠ 🟣${prefix}couplepp
+┃╠🪄${prefix}coffee
+┃╠🪄${prefix}animequote (indo)
+┃╠🪄${prefix}couplepp
 ┃╠════✪「 RANDOM ANIME 」
-┃╠ 🟣${prefix}loli
-┃╠ 🟣${prefix}bully
-┃╠ 🟣${prefix}cuddle
-┃╠ 🟣${prefix}cry
-┃╠ 🟣${prefix}hug
-┃╠ 🟣${prefix}awoo
-┃╠ 🟣${prefix}kiss
-┃╠ 🟣${prefix}lick
-┃╠ 🟣${prefix}pat
-┃╠ 🟣${prefix}smug
-┃╠ 🟣${prefix}bonk
-┃╠ 🟣${prefix}yeet
-┃╠ 🟣${prefix}blush
-┃╠ 🟣${prefix}smile
-┃╠ 🟣${prefix}wave
-┃╠ 🟣${prefix}highfive
-┃╠ 🟣${prefix}handhold
-┃╠ 🟣${prefix}nom
-┃╠ 🟣${prefix}glomp
-┃╠ 🟣${prefix}bite
-┃╠ 🟣${prefix}slap
-┃╠ 🟣${prefix}kill
-┃╠ 🟣${prefix}happy
-┃╠ 🟣${prefix}wink
-┃╠ 🟣${prefix}poke
-┃╠ 🟣${prefix}dance
-┃╠ 🟣${prefix}cringe
+┃╠🪄${prefix}loli
+┃╠🪄${prefix}bully
+┃╠🪄${prefix}cuddle
+┃╠🪄${prefix}cry
+┃╠🪄${prefix}hug
+┃╠🪄${prefix}awoo
+┃╠🪄${prefix}kiss
+┃╠🪄${prefix}lick
+┃╠🪄${prefix}pat
+┃╠🪄${prefix}smug
+┃╠🪄${prefix}bonk
+┃╠🪄${prefix}yeet
+┃╠🪄${prefix}blush
+┃╠🪄${prefix}smile
+┃╠🪄${prefix}wave
+┃╠🪄${prefix}highfive
+┃╠🪄${prefix}handhold
+┃╠🪄${prefix}nom
+┃╠🪄${prefix}glomp
+┃╠🪄${prefix}bite
+┃╠🪄${prefix}slap
+┃╠🪄${prefix}kill
+┃╠🪄${prefix}happy
+┃╠🪄${prefix}wink
+┃╠🪄${prefix}poke
+┃╠🪄${prefix}dance
+┃╠🪄${prefix}cringe
 ┃╠═══════✪「 FUN 」
-┃╠ 🟣${prefix}how [text
-┃╠ 🟣${prefix}when [text]
-┃╠ 🟣${prefix}is [text]
-┃╠ 🟣${prefix}what [text]
-┃╠ 🟣${prefix}can [text]
-┃╠ 🟣${prefix}rate [text]
-┃╠ 🟣${prefix}wangy [text]
-┃╠ 🟣${prefix}beautifulcheck [tag]
-┃╠ 🟣${prefix}awesomecheck [tag]
-┃╠ 🟣${prefix}prettycheck [tag]
-┃╠ 🟣${prefix}lesbiancheck [tag]
-┃╠ 🟣${prefix}gaycheck [tag]
-┃╠ 🟣${prefix}cutecheck [tag]
-┃╠ 🟣${prefix}uglycheck [tag]
-┃╠ 🟣${prefix}hornycheck [tag]
-┃╠ 🟣${prefix}charactercheck [tag]
-┃╠ 🟣${prefix}lovelycheck [tag]
-┃╠ 🟣${prefix}couple
-┃╠ 🟣${prefix}mysoulmate
-┃╠ 🟣${prefix}hot
-┃╠ 🟣${prefix}sexy
-┃╠ 🟣${prefix}kind
-┃╠ 🟣${prefix}idiot
-┃╠ 🟣${prefix}handsome
-┃╠ 🟣${prefix}beautiful
-┃╠ 🟣${prefix}cute
-┃╠ 🟣${prefix}pretty
-┃╠ 🟣${prefix}lesbian
-┃╠ 🟣${prefix}noob
-┃╠ 🟣${prefix}bastard
-┃╠ 🟣${prefix}foolish
-┃╠ 🟣${prefix}nerd
-┃╠ 🟣${prefix}asshole
-┃╠ 🟣${prefix}gay
-┃╠ 🟣${prefix}smart
-┃╠ 🟣${prefix}stubble
-┃╠ 🟣${prefix}dog
-┃╠ 🟣${prefix}horny
-┃╠ 🟣${prefix}cunt
-┃╠ 🟣${prefix}wibu
-┃╠ 🟣${prefix}tictactoe
-┃╠ 🟣${prefix}delttt
-┃╠ 🟣${prefix}guess [option]
-┃╠ 🟣${prefix}math [mode]
-┃╠ 🟣${prefix}suitpvp [tag]
+┃╠🪄${prefix}how [text
+┃╠🪄${prefix}when [text]
+┃╠🪄${prefix}is [text]
+┃╠🪄${prefix}what [text]
+┃╠🪄${prefix}can [text]
+┃╠🪄${prefix}rate [text]
+┃╠🪄${prefix}wangy [text]
+┃╠🪄${prefix}beautifulcheck [tag]
+┃╠🪄${prefix}awesomecheck [tag]
+┃╠🪄${prefix}prettycheck [tag]
+┃╠🪄${prefix}lesbiancheck [tag]
+┃╠🪄${prefix}gaycheck [tag]
+┃╠🪄${prefix}cutecheck [tag]
+┃╠🪄${prefix}uglycheck [tag]
+┃╠🪄${prefix}hornycheck [tag]
+┃╠🪄${prefix}charactercheck [tag]
+┃╠🪄${prefix}lovelycheck [tag]
+┃╠🪄${prefix}couple
+┃╠🪄${prefix}mysoulmate
+┃╠🪄${prefix}hot
+┃╠🪄${prefix}sexy
+┃╠🪄${prefix}kind
+┃╠🪄${prefix}idiot
+┃╠🪄${prefix}handsome
+┃╠🪄${prefix}beautiful
+┃╠🪄${prefix}cute
+┃╠🪄${prefix}pretty
+┃╠🪄${prefix}lesbian
+┃╠🪄${prefix}noob
+┃╠🪄${prefix}bastard
+┃╠🪄${prefix}foolish
+┃╠🪄${prefix}nerd
+┃╠🪄${prefix}asshole
+┃╠🪄${prefix}gay
+┃╠🪄${prefix}smart
+┃╠🪄${prefix}stubble
+┃╠🪄${prefix}dog
+┃╠🪄${prefix}horny
+┃╠🪄${prefix}cunt
+┃╠🪄${prefix}wibu
+┃╠🪄${prefix}tictactoe
+┃╠🪄${prefix}delttt
+┃╠🪄${prefix}guess [option]
+┃╠🪄${prefix}math [mode]
+┃╠🪄${prefix}suitpvp [tag]
 ┃╠═══════✪「 CONVERTER 」
-┃╠ 🟣${prefix}toimage [reply stick]
-┃╠ 🟣${prefix}sticker [reply img|gif]
-┃╠ 🟣${prefix}emojimix [moji+moji]
-┃╠ 🟣${prefix}tovideo [reply img]
-┃╠ 🟣${prefix}togif [reply stick]
-┃╠ 🟣${prefix}tourl [reply img]
-┃╠ 🟣${prefix}tovn [reply aud]
-┃╠ 🟣${prefix}tomp3 [reply vn]
-┃╠ 🟣${prefix}toaudio [reply vid]
-┃╠ 🟣${prefix}ebinary [reply txt]
-┃╠ 🟣${prefix}dbinary [reply txt]
-┃╠ 🟣${prefix}styletext [text]
+┃╠🪄${prefix}toimage [reply stick]
+┃╠🪄${prefix}sticker [reply img|gif]
+┃╠🪄${prefix}emojimix [moji+moji]
+┃╠🪄${prefix}tovideo [reply img]
+┃╠🪄${prefix}togif [reply stick]
+┃╠🪄${prefix}tourl [reply img]
+┃╠🪄${prefix}tovn [reply aud]
+┃╠🪄${prefix}tomp3 [reply vn]
+┃╠🪄${prefix}toaudio [reply vid]
+┃╠🪄${prefix}ebinary [reply txt]
+┃╠🪄${prefix}dbinary [reply txt]
+┃╠🪄${prefix}styletext [text]
 ┃╠══════✪「 DATABASE 」
-┃╠ 🟣${prefix}setcmd
-┃╠ 🟣${prefix}listcmd
-┃╠ 🟣${prefix}delcmd
-┃╠ 🟣${prefix}lockcmd
-┃╠ 🟣${prefix}addmsg
-┃╠ 🟣${prefix}listmsg
-┃╠ 🟣${prefix}getmsg
-┃╠ 🟣${prefix}delmsg
+┃╠🪄${prefix}setcmd
+┃╠🪄${prefix}listcmd
+┃╠🪄${prefix}delcmd
+┃╠🪄${prefix}lockcmd
+┃╠🪄${prefix}addmsg
+┃╠🪄${prefix}listmsg
+┃╠🪄${prefix}getmsg
+┃╠🪄${prefix}delmsg
 ┃╠══✪「 ANONYMOUS CHAT 」
-┃╠ 🟣${prefix}anonymous
-┃╠ 🟣${prefix}start
-┃╠ 🟣${prefix}next
-┃╠ 🟣${prefix}leave
+┃╠🪄${prefix}anonymous
+┃╠🪄${prefix}start
+┃╠🪄${prefix}next
+┃╠🪄${prefix}leave
 ┃╠═══✪「 VOICE CHANGER 」
-┃╠ 🟣${prefix}bass [reply aud]
-┃╠ 🟣${prefix}blown [reply aud]
-┃╠ 🟣${prefix}deep [reply aud]
-┃╠ 🟣${prefix}earrape [reply aud]
-┃╠ 🟣${prefix}fast [reply aud]
-┃╠ 🟣${prefix}fat [reply aud]
-┃╠ 🟣${prefix}nightcore [reply aud]
-┃╠ 🟣${prefix}reverse [reply aud]
-┃╠ 🟣${prefix}robot [reply aud]
-┃╠ 🟣${prefix}slow [reply aud]
-┃╠ 🟣${prefix}squirrel [reply aud]
+┃╠🪄${prefix}bass [reply aud]
+┃╠🪄${prefix}blown [reply aud]
+┃╠🪄${prefix}deep [reply aud]
+┃╠🪄${prefix}earrape [reply aud]
+┃╠🪄${prefix}fast [reply aud]
+┃╠🪄${prefix}fat [reply aud]
+┃╠🪄${prefix}nightcore [reply aud]
+┃╠🪄${prefix}reverse [reply aud]
+┃╠🪄${prefix}robot [reply aud]
+┃╠🪄${prefix}slow [reply aud]
+┃╠🪄${prefix}squirrel [reply aud]
 ┃╠══════✪「 HBMods 」
-┃╠ 🟣${prefix}instagrampro / igpro
-┃╠ 🟣${prefix}youtubepro / ytpro
-┃╠ 🟣${prefix}gbwhatsapp / gb
+┃╠🪄${prefix}instagrampro / igpro
+┃╠🪄${prefix}youtubepro / ytpro
+┃╠🪄${prefix}gbwhatsapp / gb
 ┃╠══════✪「 HOROSCOPE 」
-┃╠ 🟣${prefix}nomorhoki (indo)
-┃╠ 🟣${prefix}artimimpi (indo)
-┃╠ 🟣${prefix}artinama (indo)
-┃╠ 🟣${prefix}ramaljodoh (indo)
-┃╠ 🟣${prefix}ramaljodohbali (indo)
-┃╠ 🟣${prefix}suamiistri (indo)
-┃╠ 🟣${prefix}ramalcinta (indo)
-┃╠ 🟣${prefix}cocoknama (indo)
-┃╠ 🟣${prefix}pasangan (indo)
-┃╠ 🟣${prefix}jadiannikah (indo)
-┃╠ 🟣${prefix}sifatusaha (indo)
-┃╠ 🟣${prefix}rezeki (indo)
-┃╠ 🟣${prefix}pekerjaan (indo)
-┃╠ 🟣${prefix}nasib (indo)
-┃╠ 🟣${prefix}penyakit (indo)
-┃╠ 🟣${prefix}tarot (indo)
-┃╠ 🟣${prefix}fengshui (indo)
-┃╠ 🟣${prefix}haribaik (indo)
-┃╠ 🟣${prefix}harisangar (indo)
-┃╠ 🟣${prefix}harisial (indo)
-┃╠ 🟣${prefix}nagahari (indo)
-┃╠ 🟣${prefix}arahrezeki (indo)
-┃╠ 🟣${prefix}peruntungan (indo)
-┃╠ 🟣${prefix}weton (indo)
-┃╠ 🟣${prefix}karakter (indo)
-┃╠ 🟣${prefix}keberuntungan (indo)
-┃╠ 🟣${prefix}memancing (indo)
-┃╠ 🟣${prefix}masasubur (indo)
-┃╠ 🟣${prefix}zodiak (indo)
-┃╠ 🟣${prefix}shio (indo)
+┃╠🪄${prefix}nomorhoki (indo)
+┃╠🪄${prefix}artimimpi (indo)
+┃╠🪄${prefix}artinama (indo)
+┃╠🪄${prefix}ramaljodoh (indo)
+┃╠🪄${prefix}ramaljodohbali (indo)
+┃╠🪄${prefix}suamiistri (indo)
+┃╠🪄${prefix}ramalcinta (indo)
+┃╠🪄${prefix}cocoknama (indo)
+┃╠🪄${prefix}pasangan (indo)
+┃╠🪄${prefix}jadiannikah (indo)
+┃╠🪄${prefix}sifatusaha (indo)
+┃╠🪄${prefix}rezeki (indo)
+┃╠🪄${prefix}pekerjaan (indo)
+┃╠🪄${prefix}nasib (indo)
+┃╠🪄${prefix}penyakit (indo)
+┃╠🪄${prefix}tarot (indo)
+┃╠🪄${prefix}fengshui (indo)
+┃╠🪄${prefix}haribaik (indo)
+┃╠🪄${prefix}harisangar (indo)
+┃╠🪄${prefix}harisial (indo)
+┃╠🪄${prefix}nagahari (indo)
+┃╠🪄${prefix}arahrezeki (indo)
+┃╠🪄${prefix}peruntungan (indo)
+┃╠🪄${prefix}weton (indo)
+┃╠🪄${prefix}karakter (indo)
+┃╠🪄${prefix}keberuntungan (indo)
+┃╠🪄${prefix}memancing (indo)
+┃╠🪄${prefix}masasubur (indo)
+┃╠🪄${prefix}zodiak (indo)
+┃╠🪄${prefix}shio (indo)
 ┃╚═════════════✪
 ┗━「 *Created By ${ownername}* 」━⭓`
     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
@@ -3788,18 +3686,18 @@ var unicorn = await getBuffer(picak+'Main Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 MAIN 」
-┃╠ 🟣${prefix}alive
-┃╠ 🟣${prefix}speedtest
-┃╠ 🟣${prefix}ping
-┃╠ 🟣${prefix}owner
-┃╠ 🟣${prefix}menu
-┃╠ 🟣${prefix}delete
-┃╠ 🟣${prefix}chatinfo
-┃╠ 🟣${prefix}quoted
-┃╠ 🟣${prefix}listpc
-┃╠ 🟣${prefix}listgc
-┃╠ 🟣${prefix}donate
-┃╠ 🟣${prefix}report [bug]
+┃╠🪄${prefix}alive
+┃╠🪄${prefix}speedtest
+┃╠🪄${prefix}ping
+┃╠🪄${prefix}owner
+┃╠🪄${prefix}menu
+┃╠🪄${prefix}delete
+┃╠🪄${prefix}chatinfo
+┃╠🪄${prefix}quoted
+┃╠🪄${prefix}listpc
+┃╠🪄${prefix}listgc
+┃╠🪄${prefix}donate
+┃╠🪄${prefix}report [bug]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3809,26 +3707,26 @@ var unicorn = await getBuffer(picak+'Group Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 GROUP 」	        
-┃╠ 🟣${prefix}grouplink
-┃╠ 🟣${prefix}ephemeral [option]
-┃╠ 🟣${prefix}setgcpp [image]
-┃╠ 🟣${prefix}setname [text]
-┃╠ 🟣${prefix}setdesc [text]
-┃╠ 🟣${prefix}group [text]
-┃╠ 🟣${prefix}editinfo [option]
-┃╠ 🟣${prefix}add [user]
-┃╠ 🟣${prefix}kick [reply/tag]
-┃╠ 🟣${prefix}hidetag [text]
-┃╠ 🟣${prefix}tagall [text]
-┃╠ 🟣${prefix}antilink [on/off]
-┃╠ 🟣${prefix}mute [on/off]
-┃╠ 🟣${prefix}promote [reply/tag]
-┃╠ 🟣${prefix}demote [reply/tag]
-┃╠ 🟣${prefix}vote
-┃╠ 🟣${prefix}devote
-┃╠ 🟣${prefix}upvote
-┃╠ 🟣${prefix}checkvote
-┃╠ 🟣${prefix}delvote
+┃╠🪄${prefix}grouplink
+┃╠🪄${prefix}ephemeral [option]
+┃╠🪄${prefix}setgcpp [image]
+┃╠🪄${prefix}setname [text]
+┃╠🪄${prefix}setdesc [text]
+┃╠🪄${prefix}group [text]
+┃╠🪄${prefix}editinfo [option]
+┃╠🪄${prefix}add [user]
+┃╠🪄${prefix}kick [reply/tag]
+┃╠🪄${prefix}hidetag [text]
+┃╠🪄${prefix}tagall [text]
+┃╠🪄${prefix}antilink [on/off]
+┃╠🪄${prefix}mute [on/off]
+┃╠🪄${prefix}promote [reply/tag]
+┃╠🪄${prefix}demote [reply/tag]
+┃╠🪄${prefix}vote
+┃╠🪄${prefix}devote
+┃╠🪄${prefix}upvote
+┃╠🪄${prefix}checkvote
+┃╠🪄${prefix}delvote
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3838,15 +3736,15 @@ var unicorn = await getBuffer(picak+'Rpg Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 RPG 」	        
-┃╠ 🟣${prefix}hunting
-┃╠ 🟣${prefix}mining
-┃╠ 🟣${prefix}heal
-┃╠ 🟣${prefix}limituser
-┃╠ 🟣${prefix}profile
-┃╠ 🟣${prefix}inventory
-┃╠ 🟣${prefix}leaderboard
-┃╠ 🟣${prefix}buy [option]
-┃╠ 🟣${prefix}sell [option]
+┃╠🪄${prefix}hunting
+┃╠🪄${prefix}mining
+┃╠🪄${prefix}heal
+┃╠🪄${prefix}limituser
+┃╠🪄${prefix}profile
+┃╠🪄${prefix}inventory
+┃╠🪄${prefix}leaderboard
+┃╠🪄${prefix}buy [option]
+┃╠🪄${prefix}sell [option]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3856,50 +3754,50 @@ var unicorn = await getBuffer(picak+'Fun Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 FUN 」	        
-┃╠ 🟣${prefix}how [text
-┃╠ 🟣${prefix}when [text]
-┃╠ 🟣${prefix}is [text]
-┃╠ 🟣${prefix}what [text]
-┃╠ 🟣${prefix}can [text]
-┃╠ 🟣${prefix}rate [text]
-┃╠ 🟣${prefix}wangy [text]
-┃╠ 🟣${prefix}beautifulcheck [tag]
-┃╠ 🟣${prefix}awesomecheck [tag]
-┃╠ 🟣${prefix}prettycheck [tag]
-┃╠ 🟣${prefix}lesbiancheck [tag]
-┃╠ 🟣${prefix}gaycheck [tag]
-┃╠ 🟣${prefix}cutecheck [tag]
-┃╠ 🟣${prefix}uglycheck [tag]
-┃╠ 🟣${prefix}hornycheck [tag]
-┃╠ 🟣${prefix}charactercheck [tag]
-┃╠ 🟣${prefix}lovelycheck [tag]
-┃╠ 🟣${prefix}couple
-┃╠ 🟣${prefix}mysoulmate
-┃╠ 🟣${prefix}hot
-┃╠ 🟣${prefix}sexy
-┃╠ 🟣${prefix}kind
-┃╠ 🟣${prefix}handsome
-┃╠ 🟣${prefix}beautiful
-┃╠ 🟣${prefix}cute
-┃╠ 🟣${prefix}pretty
-┃╠ 🟣${prefix}lesbian
-┃╠ 🟣${prefix}noob
-┃╠ 🟣${prefix}bastard
-┃╠ 🟣${prefix}foolish
-┃╠ 🟣${prefix}nerd
-┃╠ 🟣${prefix}asshole
-┃╠ 🟣${prefix}gay
-┃╠ 🟣${prefix}smart
-┃╠ 🟣${prefix}stubble
-┃╠ 🟣${prefix}dog
-┃╠ 🟣${prefix}horny
-┃╠ 🟣${prefix}cunt
-┃╠ 🟣${prefix}wibu
-┃╠ 🟣${prefix}tictactoe
-┃╠ 🟣${prefix}delttt
-┃╠ 🟣${prefix}guess [option]
-┃╠ 🟣${prefix}math [mode]
-┃╠ 🟣${prefix}suitpvp [tag]
+┃╠🪄${prefix}how [text
+┃╠🪄${prefix}when [text]
+┃╠🪄${prefix}is [text]
+┃╠🪄${prefix}what [text]
+┃╠🪄${prefix}can [text]
+┃╠🪄${prefix}rate [text]
+┃╠🪄${prefix}wangy [text]
+┃╠🪄${prefix}beautifulcheck [tag]
+┃╠🪄${prefix}awesomecheck [tag]
+┃╠🪄${prefix}prettycheck [tag]
+┃╠🪄${prefix}lesbiancheck [tag]
+┃╠🪄${prefix}gaycheck [tag]
+┃╠🪄${prefix}cutecheck [tag]
+┃╠🪄${prefix}uglycheck [tag]
+┃╠🪄${prefix}hornycheck [tag]
+┃╠🪄${prefix}charactercheck [tag]
+┃╠🪄${prefix}lovelycheck [tag]
+┃╠🪄${prefix}couple
+┃╠🪄${prefix}mysoulmate
+┃╠🪄${prefix}hot
+┃╠🪄${prefix}sexy
+┃╠🪄${prefix}kind
+┃╠🪄${prefix}handsome
+┃╠🪄${prefix}beautiful
+┃╠🪄${prefix}cute
+┃╠🪄${prefix}pretty
+┃╠🪄${prefix}lesbian
+┃╠🪄${prefix}noob
+┃╠🪄${prefix}bastard
+┃╠🪄${prefix}foolish
+┃╠🪄${prefix}nerd
+┃╠🪄${prefix}asshole
+┃╠🪄${prefix}gay
+┃╠🪄${prefix}smart
+┃╠🪄${prefix}stubble
+┃╠🪄${prefix}dog
+┃╠🪄${prefix}horny
+┃╠🪄${prefix}cunt
+┃╠🪄${prefix}wibu
+┃╠🪄${prefix}tictactoe
+┃╠🪄${prefix}delttt
+┃╠🪄${prefix}guess [option]
+┃╠🪄${prefix}math [mode]
+┃╠🪄${prefix}suitpvp [tag]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3909,26 +3807,26 @@ var unicorn = await getBuffer(picak+'Owner Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 OWNER 」	        
-┃╠ 🟣${prefix}grouplink
-┃╠ 🟣${prefix}ephemeral [option]
-┃╠ 🟣${prefix}setgcpp [image]
-┃╠ 🟣${prefix}setname [text]
-┃╠ 🟣${prefix}setdesc [text]
-┃╠ 🟣${prefix}group [text]
-┃╠ 🟣${prefix}editinfo [option]
-┃╠ 🟣${prefix}add [user]
-┃╠ 🟣${prefix}kick [reply/tag]
-┃╠ 🟣${prefix}hidetag [text]
-┃╠ 🟣${prefix}tagall [text]
-┃╠ 🟣${prefix}antilink [on/off]
-┃╠ 🟣${prefix}mute [on/off]
-┃╠ 🟣${prefix}promote [reply/tag]
-┃╠ 🟣${prefix}demote [reply/tag]
-┃╠ 🟣${prefix}vote
-┃╠ 🟣${prefix}devote
-┃╠ 🟣${prefix}upvote
-┃╠ 🟣${prefix}checkvote
-┃╠ 🟣${prefix}delvote
+┃╠🪄${prefix}grouplink
+┃╠🪄${prefix}ephemeral [option]
+┃╠🪄${prefix}setgcpp [image]
+┃╠🪄${prefix}setname [text]
+┃╠🪄${prefix}setdesc [text]
+┃╠🪄${prefix}group [text]
+┃╠🪄${prefix}editinfo [option]
+┃╠🪄${prefix}add [user]
+┃╠🪄${prefix}kick [reply/tag]
+┃╠🪄${prefix}hidetag [text]
+┃╠🪄${prefix}tagall [text]
+┃╠🪄${prefix}antilink [on/off]
+┃╠🪄${prefix}mute [on/off]
+┃╠🪄${prefix}promote [reply/tag]
+┃╠🪄${prefix}demote [reply/tag]
+┃╠🪄${prefix}vote
+┃╠🪄${prefix}devote
+┃╠🪄${prefix}upvote
+┃╠🪄${prefix}checkvote
+┃╠🪄${prefix}delvote
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3937,13 +3835,13 @@ var unicorn = await getBuffer(picak+'Downloader Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═════✪「 DOWNLOADER 」	        
-┃╠ 🟣${prefix}ytmp3 [url|quality]
-┃╠ 🟣${prefix}ytmp4 [url|quality]
-┃╠ 🟣${prefix}getmusic [yt link]
-┃╠ 🟣${prefix}getvideo [yt link]
-┃╠ 🟣${prefix}umma [query]
-┃╠ 🟣${prefix}joox [query]
-┃╠ 🟣${prefix}soundcloud [url]
+┃╠🪄${prefix}ytmp3 [url|quality]
+┃╠🪄${prefix}ytmp4 [url|quality]
+┃╠🪄${prefix}getmusic [yt link]
+┃╠🪄${prefix}getvideo [yt link]
+┃╠🪄${prefix}umma [query]
+┃╠🪄${prefix}joox [query]
+┃╠🪄${prefix}soundcloud [url]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3952,17 +3850,17 @@ var unicorn = await getBuffer(picak+'Search Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 SEARCHER 」	        
-┃╠ 🟣${prefix}play [query]
-┃╠ 🟣${prefix}song [query]
-┃╠ 🟣${prefix}yts [query]
-┃╠ 🟣${prefix}google [query]
-┃╠ 🟣${prefix}gimage [query]
-┃╠ 🟣${prefix}pinterest [query]
-┃╠ 🟣${prefix}wallpaper [query]
-┃╠ 🟣${prefix}wikimedia [query]
-┃╠ 🟣${prefix}ytsearch [query]
-┃╠ 🟣${prefix}ringtone [query]
-┃╠ 🟣${prefix}webtoon [query]
+┃╠🪄${prefix}play [query]
+┃╠🪄${prefix}song [query]
+┃╠🪄${prefix}yts [query]
+┃╠🪄${prefix}google [query]
+┃╠🪄${prefix}gimage [query]
+┃╠🪄${prefix}pinterest [query]
+┃╠🪄${prefix}wallpaper [query]
+┃╠🪄${prefix}wikimedia [query]
+┃╠🪄${prefix}ytsearch [query]
+┃╠🪄${prefix}ringtone [query]
+┃╠🪄${prefix}webtoon [query]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3971,9 +3869,9 @@ var unicorn = await getBuffer(picak+'Random Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═══════✪「 RANDOM 」	        
-┃╠ 🟣${prefix}coffee
-┃╠ 🟣${prefix}animequote (indo)
-┃╠ 🟣${prefix}couplepp
+┃╠🪄${prefix}coffee
+┃╠🪄${prefix}animequote (indo)
+┃╠🪄${prefix}couplepp
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -3982,33 +3880,33 @@ var unicorn = await getBuffer(picak+'Random Anime Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═════✪「 RANDOM ANIME 」	        
-┃╠ 🟣${prefix}loli
-┃╠ 🟣${prefix}bully
-┃╠ 🟣${prefix}cuddle
-┃╠ 🟣${prefix}cry
-┃╠ 🟣${prefix}hug
-┃╠ 🟣${prefix}awoo
-┃╠ 🟣${prefix}kiss
-┃╠ 🟣${prefix}lick
-┃╠ 🟣${prefix}pat
-┃╠ 🟣${prefix}smug
-┃╠ 🟣${prefix}bonk
-┃╠ 🟣${prefix}yeet
-┃╠ 🟣${prefix}blush
-┃╠ 🟣${prefix}smile
-┃╠ 🟣${prefix}wave
-┃╠ 🟣${prefix}highfive
-┃╠ 🟣${prefix}handhold
-┃╠ 🟣${prefix}nom
-┃╠ 🟣${prefix}glomp
-┃╠ 🟣${prefix}bite
-┃╠ 🟣${prefix}slap
-┃╠ 🟣${prefix}kill
-┃╠ 🟣${prefix}happy
-┃╠ 🟣${prefix}wink
-┃╠ 🟣${prefix}poke
-┃╠ 🟣${prefix}dance
-┃╠ 🟣${prefix}cringe
+┃╠🪄${prefix}loli
+┃╠🪄${prefix}bully
+┃╠🪄${prefix}cuddle
+┃╠🪄${prefix}cry
+┃╠🪄${prefix}hug
+┃╠🪄${prefix}awoo
+┃╠🪄${prefix}kiss
+┃╠🪄${prefix}lick
+┃╠🪄${prefix}pat
+┃╠🪄${prefix}smug
+┃╠🪄${prefix}bonk
+┃╠🪄${prefix}yeet
+┃╠🪄${prefix}blush
+┃╠🪄${prefix}smile
+┃╠🪄${prefix}wave
+┃╠🪄${prefix}highfive
+┃╠🪄${prefix}handhold
+┃╠🪄${prefix}nom
+┃╠🪄${prefix}glomp
+┃╠🪄${prefix}bite
+┃╠🪄${prefix}slap
+┃╠🪄${prefix}kill
+┃╠🪄${prefix}happy
+┃╠🪄${prefix}wink
+┃╠🪄${prefix}poke
+┃╠🪄${prefix}dance
+┃╠🪄${prefix}cringe
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4017,37 +3915,37 @@ var unicorn = await getBuffer(picak+'Text Pro Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═════✪「 TEXT PRO 」	        
-┃╠ 🟣${prefix}3dchristmas [txt]
-┃╠ 🟣${prefix}3ddeepsea [txt]
-┃╠ 🟣${prefix}americanflag [txt]
-┃╠ 🟣${prefix}3dscifi [txt]
-┃╠ 🟣${prefix}3drainbow [txt]
-┃╠ 🟣${prefix}3dwaterpipe [txt]
-┃╠ 🟣${prefix}halloweenskeleton [txt]
-┃╠ 🟣${prefix}sketch [txt]
-┃╠ 🟣${prefix}bluecircuit [txt]
-┃╠ 🟣${prefix}space [txt]
-┃╠ 🟣${prefix}metallic [txt]
-┃╠ 🟣${prefix}fiction [txt]
-┃╠ 🟣${prefix}greenhorror [txt]
-┃╠ 🟣${prefix}transformer [txt]
-┃╠ 🟣${prefix}berry [txt]
-┃╠ 🟣${prefix}thunder [txt]
-┃╠ 🟣${prefix}magma [txt]
-┃╠ 🟣${prefix}3dcrackedstone [txt]
-┃╠ 🟣${prefix}3dneonlight [txt]
-┃╠ 🟣${prefix}impressiveglitch [txt]
-┃╠ 🟣${prefix}naturalleaves [txt]
-┃╠ 🟣${prefix}fireworksparkle [txt]
-┃╠ 🟣${prefix}matrix [txt]
-┃╠ 🟣${prefix}dropwater [txt]
-┃╠ 🟣${prefix}harrypotter [txt]
-┃╠ 🟣${prefix}foggywindow [txt]
-┃╠ 🟣${prefix}neondevils [txt]
-┃╠ 🟣${prefix}christmasholiday [txt]
-┃╠ 🟣${prefix}3dgradient [txt]
-┃╠ 🟣${prefix}blackpink [txt]
-┃╠ 🟣${prefix}gluetext [txt]
+┃╠🪄${prefix}3dchristmas [txt]
+┃╠🪄${prefix}3ddeepsea [txt]
+┃╠🪄${prefix}americanflag [txt]
+┃╠🪄${prefix}3dscifi [txt]
+┃╠🪄${prefix}3drainbow [txt]
+┃╠🪄${prefix}3dwaterpipe [txt]
+┃╠🪄${prefix}halloweenskeleton [txt]
+┃╠🪄${prefix}sketch [txt]
+┃╠🪄${prefix}bluecircuit [txt]
+┃╠🪄${prefix}space [txt]
+┃╠🪄${prefix}metallic [txt]
+┃╠🪄${prefix}fiction [txt]
+┃╠🪄${prefix}greenhorror [txt]
+┃╠🪄${prefix}transformer [txt]
+┃╠🪄${prefix}berry [txt]
+┃╠🪄${prefix}thunder [txt]
+┃╠🪄${prefix}magma [txt]
+┃╠🪄${prefix}3dcrackedstone [txt]
+┃╠🪄${prefix}3dneonlight [txt]
+┃╠🪄${prefix}impressiveglitch [txt]
+┃╠🪄${prefix}naturalleaves [txt]
+┃╠🪄${prefix}fireworksparkle [txt]
+┃╠🪄${prefix}matrix [txt]
+┃╠🪄${prefix}dropwater [txt]
+┃╠🪄${prefix}harrypotter [txt]
+┃╠🪄${prefix}foggywindow [txt]
+┃╠🪄${prefix}neondevils [txt]
+┃╠🪄${prefix}christmasholiday [txt]
+┃╠🪄${prefix}3dgradient [txt]
+┃╠🪄${prefix}blackpink [txt]
+┃╠🪄${prefix}gluetext [txt]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4056,17 +3954,17 @@ var unicorn = await getBuffer(picak+'Converter Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═════✪「 CONVERTER 」	        
-┃╠ 🟣${prefix}toimage [reply stick]
-┃╠ 🟣${prefix}sticker [reply img|gif]
-┃╠ 🟣${prefix}emojimix [moji+moji]
-┃╠ 🟣${prefix}tovideo [reply img]
-┃╠ 🟣${prefix}togif [reply stick]
-┃╠ 🟣${prefix}tourl [reply media]
-┃╠ 🟣${prefix}tovn [reply aud]
-┃╠ 🟣${prefix}tomp3 [reply vn]
-┃╠ 🟣${prefix}toaudio [reply vid]
-┃╠ 🟣${prefix}ebinary [reply txt]
-┃╠ 🟣${prefix}dbinary [reply txt]
+┃╠🪄${prefix}toimage [reply stick]
+┃╠🪄${prefix}sticker [reply img|gif]
+┃╠🪄${prefix}emojimix [moji+moji]
+┃╠🪄${prefix}tovideo [reply img]
+┃╠🪄${prefix}togif [reply stick]
+┃╠🪄${prefix}tourl [reply media]
+┃╠🪄${prefix}tovn [reply aud]
+┃╠🪄${prefix}tomp3 [reply vn]
+┃╠🪄${prefix}toaudio [reply vid]
+┃╠🪄${prefix}ebinary [reply txt]
+┃╠🪄${prefix}dbinary [reply txt]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4075,14 +3973,14 @@ var unicorn = await getBuffer(picak+'Database Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔═════✪「 DATABASE 」	        
-┃╠ 🟣${prefix}setcmd
-┃╠ 🟣${prefix}listcmd
-┃╠ 🟣${prefix}delcmd
-┃╠ 🟣${prefix}lockcmd
-┃╠ 🟣${prefix}addmsg
-┃╠ 🟣${prefix}listmsg
-┃╠ 🟣${prefix}getmsg
-┃╠ 🟣${prefix}delmsg
+┃╠🪄${prefix}setcmd
+┃╠🪄${prefix}listcmd
+┃╠🪄${prefix}delcmd
+┃╠🪄${prefix}lockcmd
+┃╠🪄${prefix}addmsg
+┃╠🪄${prefix}listmsg
+┃╠🪄${prefix}getmsg
+┃╠🪄${prefix}delmsg
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4091,10 +3989,10 @@ var unicorn = await getBuffer(picak+'Database Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔══✪「 ANONYMOUS CHAT 」	        
-┃╠ 🟣${prefix}anonymous
-┃╠ 🟣${prefix}start
-┃╠ 🟣${prefix}next
-┃╠ 🟣${prefix}leave
+┃╠🪄${prefix}anonymous
+┃╠🪄${prefix}start
+┃╠🪄${prefix}next
+┃╠🪄${prefix}leave
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4103,9 +4001,9 @@ var unicorn = await getBuffer(picak+'HBMods Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔══✪「 HBMods 」	        
-┃╠ 🟣${prefix}instagrampro / igpro
-┃╠ 🟣${prefix}youtubepro / ytpro
-┃╠ 🟣${prefix}gbwhatsapp / gb
+┃╠🪄${prefix}instagrampro / igpro
+┃╠🪄${prefix}youtubepro / ytpro
+┃╠🪄${prefix}gbwhatsapp / gb
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
@@ -4114,72 +4012,103 @@ var unicorn = await getBuffer(picak+'Voice Changer Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔══✪「 VOICE CHANGER 」	        
-┃╠ 🟣${prefix}bass [reply aud]
-┃╠ 🟣${prefix}blown [reply aud]
-┃╠ 🟣${prefix}deep [reply aud]
-┃╠ 🟣${prefix}earrape [reply aud]
-┃╠ 🟣${prefix}fast [reply aud]
-┃╠ 🟣${prefix}fat [reply aud]
-┃╠ 🟣${prefix}nightcore [reply aud]
-┃╠ 🟣${prefix}reverse [reply aud]
-┃╠ 🟣${prefix}robot [reply aud]
-┃╠ 🟣${prefix}slow [reply aud]
-┃╠ 🟣${prefix}squirrel [reply aud]
+┃╠🪄${prefix}bass [reply aud]
+┃╠🪄${prefix}blown [reply aud]
+┃╠🪄${prefix}deep [reply aud]
+┃╠🪄${prefix}earrape [reply aud]
+┃╠🪄${prefix}fast [reply aud]
+┃╠🪄${prefix}fat [reply aud]
+┃╠🪄${prefix}nightcore [reply aud]
+┃╠🪄${prefix}reverse [reply aud]
+┃╠🪄${prefix}robot [reply aud]
+┃╠🪄${prefix}slow [reply aud]
+┃╠🪄${prefix}squirrel [reply aud]
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
+break
+case 'menu': case 'help': 
+var unicorn = await getBuffer(picak+'HBWABot')
+await HBModsMd.send5ButImg(from, `` + '' + ' ', `
+┌─❖
+│「 Hi 👋 」
+└┬❖ 「 ${pushname} 」
+┌┤✑  How Are You? 😄
+│└───────────────┈ ⳹
+│ 「 BOT INFO 」
+│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
+│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
+│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
+└┬──────────────┈ ⳹
+   │✑  Please Select The Button Below
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All Menu🍱","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu🍱","id": 'command'}{"displayText": "Owner🌚","id": 'owner'}}] )
+break
+case 'alive': case 'bot':
+var unicorn = await getBuffer(picak+'HBWABot')
+await HBModsMd.send5ButImg(from, `` + '' + ' ', `
+│「 Hi 👋 」
+└┬❖ 「 ${pushname} 」
+┌┤✑  HBWABot With You Forever 
+││✑  🌚🖐️!!
+│└───────────────┈ ⳹
+│ 「 BOT INFO 」
+│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
+│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
+│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
+└┬──────────────┈ ⳹
+   │✑  Please Select The Button Below
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All Menu🍱","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu🍱","id": 'command'}{"displayText": "Owner🌚","id": 'owner'}}] )
 break
 case 'horoscopemenu':
 var unicorn = await getBuffer(picak+'Horoscope Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
 ┃╔══✪「 HOROSCOPE 」	        
-┃╠ 🟣${prefix}nomorhoki (indo)
-┃╠ 🟣${prefix}artimimpi (indo)
-┃╠ 🟣${prefix}artinama (indo)
-┃╠ 🟣${prefix}ramaljodoh (indo)
-┃╠ 🟣${prefix}ramaljodohbali (indo)
-┃╠ 🟣${prefix}suamiistri (indo)
-┃╠ 🟣${prefix}ramalcinta (indo)
-┃╠ 🟣${prefix}cocoknama (indo)
-┃╠ 🟣${prefix}pasangan (indo)
-┃╠ 🟣${prefix}jadiannikah (indo)
-┃╠ 🟣${prefix}sifatusaha (indo)
-┃╠ 🟣${prefix}rezeki (indo)
-┃╠ 🟣${prefix}pekerjaan (indo)
-┃╠ 🟣${prefix}nasib (indo)
-┃╠ 🟣${prefix}penyakit (indo)
-┃╠ 🟣${prefix}tarot (indo)
-┃╠ 🟣${prefix}fengshui (indo)
-┃╠ 🟣${prefix}haribaik (indo)
-┃╠ 🟣${prefix}harisangar (indo)
-┃╠ 🟣${prefix}harisial (indo)
-┃╠ 🟣${prefix}nagahari (indo)
-┃╠ 🟣${prefix}arahrezeki (indo)
-┃╠ 🟣${prefix}peruntungan (indo)
-┃╠ 🟣${prefix}weton (indo)
-┃╠ 🟣${prefix}karakter (indo)
-┃╠ 🟣${prefix}keberuntungan (indo)
-┃╠ 🟣${prefix}memancing (indo)
-┃╠ 🟣${prefix}masasubur (indo)
-┃╠ 🟣${prefix}zodiak (indo)
-┃╠ 🟣${prefix}shio (indo)
+┃╠🪄${prefix}nomorhoki (indo)
+┃╠🪄${prefix}artimimpi (indo)
+┃╠🪄${prefix}artinama (indo)
+┃╠🪄${prefix}ramaljodoh (indo)
+┃╠🪄${prefix}ramaljodohbali (indo)
+┃╠🪄${prefix}suamiistri (indo)
+┃╠🪄${prefix}ramalcinta (indo)
+┃╠🪄${prefix}cocoknama (indo)
+┃╠🪄${prefix}pasangan (indo)
+┃╠🪄${prefix}jadiannikah (indo)
+┃╠🪄${prefix}sifatusaha (indo)
+┃╠🪄${prefix}rezeki (indo)
+┃╠🪄${prefix}pekerjaan (indo)
+┃╠🪄${prefix}nasib (indo)
+┃╠🪄${prefix}penyakit (indo)
+┃╠🪄${prefix}tarot (indo)
+┃╠🪄${prefix}fengshui (indo)
+┃╠🪄${prefix}haribaik (indo)
+┃╠🪄${prefix}harisangar (indo)
+┃╠🪄${prefix}harisial (indo)
+┃╠🪄${prefix}nagahari (indo)
+┃╠🪄${prefix}arahrezeki (indo)
+┃╠🪄${prefix}peruntungan (indo)
+┃╠🪄${prefix}weton (indo)
+┃╠🪄${prefix}karakter (indo)
+┃╠🪄${prefix}keberuntungan (indo)
+┃╠🪄${prefix}memancing (indo)
+┃╠🪄${prefix}masasubur (indo)
+┃╠🪄${prefix}zodiak (indo)
+┃╠🪄${prefix}shio (indo)
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
 case 'developer': case 'follow': case 'join':
 var unicorn = await getBuffer(picak+'Developer')
-await HBModsMd.send5ButImg(from, `` + '' + ' ', `
-┌─❖
-│「 Hi 👋 」
-└┬❖ 「 ${pushname} 」
-┌┤✑  
-│└───────────────┈ ⳹
-│ 𝗙𝗼𝗹𝗹𝗼𝘄 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 𝗼𝗻 
-│ 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺 & 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 
-└┬──────────────┈ ⳹
-   │𝗣𝗹𝗲𝗮𝘀𝗲 𝗦𝗲𝗹𝗲𝗰𝘁 𝗧𝗵𝗲 𝗕𝘂𝘁𝘁𝗼𝗻 
-   │𝗕𝗲𝗹𝗼𝘄
-   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"urlButton": {"displayText": "𝗝𝗼𝗶𝗻 𝗕𝗼𝘁 𝗚𝗿𝗼𝘂𝗽","url": `${grpj}`}},{"urlButton": {"displayText": "𝗛𝗕𝗠𝗼𝗱𝘀 𝗔𝗣𝗞 𝗦𝘁𝗼𝗿𝗲","url": `${hbmodsapk}`}},{"urlButton": {"displayText": "𝗝𝗼𝗶𝗻 𝗛𝗕𝗠𝗼𝗱𝘀 𝗚𝗿𝗼𝘂𝗽","url": `${grpj2}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
+await HBModsMd.send5ButImg(from, `` + '' + ' ', `┌─❖\n│「 Hi 👋 」\n└┬❖ 「 ${pushname} 」\n┌┤✑  \n│└───────────────┈ ⳹\n│ 𝗙𝗼𝗹𝗹𝗼𝘄 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 𝗼𝗻 \n│ 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺 & 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 \n└┬──────────────┈ ⳹\n   │𝗣𝗹𝗲𝗮𝘀𝗲 𝗦𝗲𝗹𝗲𝗰𝘁 𝗧𝗵𝗲 𝗕𝘂𝘁𝘁𝗼𝗻 \n   │𝗕𝗲𝗹𝗼𝘄\n   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"urlButton": {"displayText": "𝗝𝗼𝗶𝗻 𝗕𝗼𝘁 𝗚𝗿𝗼𝘂𝗽","url": `${grpj}`}},{"urlButton": {"displayText": "𝗛𝗕𝗠𝗼𝗱𝘀 𝗔𝗣𝗞 𝗦𝘁𝗼𝗿𝗲","url": `${hbmodsapk}`}},{"urlButton": {"displayText": "𝗝𝗼𝗶𝗻 𝗛𝗕𝗠𝗼𝗱𝘀 𝗚𝗿𝗼𝘂𝗽","url": `${grpj2}`}}] )
 break
             default:
                 if (budy.startsWith('=>')) {
