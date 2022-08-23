@@ -3683,7 +3683,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/GPIbHx2.png' }, caption: `*Hi ${m.pushName}*\n\n*Thanks for your support we appreciate you we dont need your money, support us by subscribing to our youtube channel* *HBMods Channel:* https://youtube.com/c/HBSuantakOfficialChannel` }, { quoted: m })
             }
             break
-            case 'igpro': case 'instapro'; case 'instagrampro': case 'instamod': {
+            case 'igpro': case 'instapro'; case 'instagrampro': {
                 HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/I3jSXAL.png' }, caption: `*Instagram Pro Last Version Download*\nhttps://herbert70.blogspot.com/2022/07/instagram-pro.html  \n\nYouTube : ${myweb}\nDont Forget To Subscribe` }, { quoted: m })
             }
             break 
