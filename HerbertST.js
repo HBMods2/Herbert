@@ -202,11 +202,11 @@ module.exports = HBModsMd = async (HBModsMd, m, chatUpdate, store) => {
 	
 	//group target \\
 const reply = (teks) => {
-    HBWABotINC.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.myweb}`}}}, { quoted: m})
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.myweb}`}}}, { quoted: m})
 }
 
 const replay = (teks) => {
-    HBWABotINC.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.grpj}`}}}, { quoted: m})
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.grpj}`}}}, { quoted: m})
 }
 	
         //Public & Self\\
@@ -3490,7 +3490,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
 break
-            case 'list': case 'menu': {
+            case 'listxxxx': case 'menuxxx': {
             	timestampe = speed();
 latensie = speed() - timestampe
                 anu = ``
@@ -4341,6 +4341,27 @@ Thanks to Me (HBWABOT)
 Alien-Alfa (For helping me to deploy qr in replit and answered my every doubts regard this project)
 DGXeon ( 45% Credits goes to him ,in this script)
 And Again Me (HBMods) 🌚 Who Helped Assemble This Sexy Script !!!`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","url": 'owner'}}] )
+break
+case 'menu': case 'help': case 'alive':
+var unicorn = await getBuffer(picak+'HBWABot')
+await HBModsMd.send5ButImg(from, `` + '' + ' ', `
+┌─❖
+│「 Hi 👋 」
+└┬❖ 「 ${pushname} 」
+┌┤✑  How are you?😄
+│└───────────────┈ ⳹
+│ 「 BOT INFO 」
+│✙ 𝗦𝗽𝗲𝗲𝗱 : 0.00092 miliseconds
+│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
+│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
+│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
+└┬──────────────┈ ⳹
+   │✑  Please Select The Button Below
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickRrplyButton"; {"displayText": "All Menu","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}},{"quickReplyButton": {"displayText": "👤Owner👤","url": 'owner'}}] )
 break
             default:
                 if (budy.startsWith('=>')) {
