@@ -2127,50 +2127,23 @@ break
                   break
 case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=HBModsMd[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
-	   case 'ytmp3':  case 'ytmusic': {	    
-	            if (isBan) throw mess.ban
+	     case 'ytmp3': case 'getmusic': case 'ytaudio': {
                 let { yta } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
-                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
-                
-                let quality = args[1] ? args[1] : '128kbps'
+                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+                let quality = args[1] ? args[1] : '320kbps'
                 let media = await yta(text, quality)
-                if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-                let caption = `
-*⬤⬤BEST MUSIC⬤⬤*
-
-*⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*HBWABot INC*`
-                buf = await getBuffer(media.thumb)
-                HBModsMd.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
-                HBModsMd.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-                title:media.title,
-                body:"YOUTUBE MP3",
-                mediaType:2,
-                thumbnail:buf,
-                mediaUrl:`${text}`, 
-                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
-                }
+                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
+                GojoMdNx.sendImage(m.chat, media.thumb, `🐦 Title : ${media.title}\n🐦 File Size : ${media.filesizeF}\n🐦 Url : ${isUrl(text)}\n🐦 Ext : MP3\n🐦 Resolution : ${args[1] || '128kbps'}`, m)
+                GojoMdNx.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+            }
             break
-           case 'ytmp4': case 'ytvideo': {
-           if (isBan) throw mess.ban
-                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)            
+            case 'ytmp4': case 'getvideo': case 'ytvideo': {
                 let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
-                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
-                if (!isInventoryLimit){ addInventoriLimit(m.sender) }
-            if (isLimit < 1) return m.reply(mess.endLimit)
-            kurangLimit(m.sender, 1)
-            m.reply(`*1 limit used*`)
+                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-                var capti = `
-*⬤⬤BEST VIDEO⬤⬤*
-
-*⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*HBWABot INC*`
-                var buf = await getBuffer(media.thumb)
-                HBModsMd.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
-                HBModsMd.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
+                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
+                GojoMdNx.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `🐦 Title : ${media.title}\n🐦 File Size : ${media.filesizeF}\n🐦 Url : ${isUrl(text)}\n🐦 Ext : MP3\n🐦 Resolution : ${args[1] || '128p'}` }, { quoted: m })
             }
             break
 	   case 'getmusic': {
