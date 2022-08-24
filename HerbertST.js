@@ -1769,12 +1769,12 @@ break
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '🎀Menu🎀',
+                                    displayText: 'Menu',
                                     id: 'menu'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '👤Owner👤',
+                                    displayText: 'Owner👤',
                                     id: 'owner'
                                 }
                             }]
@@ -1803,12 +1803,12 @@ break
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '🎀Menu🎀',
+                                    displayText: 'Menu',
                                     id: 'menu'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '👤Owner👤',
+                                    displayText: 'Owner👤',
                                     id: 'owner'
                                 }
                             }]
@@ -3431,7 +3431,7 @@ reply("Success Changing Menu To "+q)
 }
 
                     break
-                     case 'alive': case 'bot':{
+                     case 'alivexxx': case 'botxxx':{
                            	timestampe = speed();
 latensie = speed() - timestampe
  anu = ` `
@@ -4361,7 +4361,7 @@ await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 │✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
 └┬──────────────┈ ⳹
    │✑  Please Select The Button Below
-   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickRrplyButton"; {"displayText": "All Menu","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}},{"quickReplyButton": {"displayText": "👤Owner👤","url": 'owner'}}] )
+   └───────────────┈ ⳹`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "All Menu","id": 'allmenu'}},{"quickReplyButton": {"displayText": "List Menh","url": 'command'}}] )
 break
             default:
                 if (budy.startsWith('=>')) {
