@@ -202,11 +202,11 @@ module.exports = HBModsMd = async (HBModsMd, m, chatUpdate, store) => {
 	
 	//group target \\
 const reply = (teks) => {
-    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` HBMods Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.myweb}`}}}, { quoted: m})
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT GROUP`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.grpj}`}}}, { quoted: m})
 }
 
 const replay = (teks) => {
-    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` BOT Group`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.grpj}`}}}, { quoted: m})
+    HBModsMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `BOT YOUTUBE CHANNEL `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/herbert.jpg`),"sourceUrl": `${global.myweb}`}}}, { quoted: m})
 }
 	
         //Public & Self\\
@@ -2127,23 +2127,50 @@ break
                   break
 case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){const _0x3b9c98=_0x3b9c();return _0x4c3b=function(_0x4c3b5c,_0x283661){_0x4c3b5c=_0x4c3b5c-0xde;let _0x293112=_0x3b9c98[_0x4c3b5c];return _0x293112;},_0x4c3b(_0x54ae6d,_0x1bd257);}const _0x309941=_0x4c3b;(function(_0x39a082,_0x29c94e){const _0x31d9ff=_0x4c3b,_0x475bdc=_0x39a082();while(!![]){try{const _0x413430=parseInt(_0x31d9ff(0xde))/0x1+-parseInt(_0x31d9ff(0xf6))/0x2+-parseInt(_0x31d9ff(0xef))/0x3*(-parseInt(_0x31d9ff(0xe7))/0x4)+-parseInt(_0x31d9ff(0xf5))/0x5+parseInt(_0x31d9ff(0xec))/0x6+parseInt(_0x31d9ff(0xf2))/0x7*(-parseInt(_0x31d9ff(0xe2))/0x8)+-parseInt(_0x31d9ff(0xf3))/0x9;if(_0x413430===_0x29c94e)break;else _0x475bdc['push'](_0x475bdc['shift']());}catch(_0x42b36d){_0x475bdc['push'](_0x475bdc['shift']());}}}(_0x3b9c,0x95b3f));function _0x3b9c(){const _0x638643=['3DDoYge','description','views','21pCPFvn','6141285sksXBX','\x0a*DURATION*\x20','1562925wRUdVF','624600RRcHIn','yt-search','url','1208674kLzYwF','sendMessage','chat','name','2313448kMulLs','ago','\x0a*LINK:*\x20','ytmp4\x20','title','1890928GCYvLv','Example\x20:\x20','LIST\x20OF\x20VIDEOS','\x20seh\x20calaz\x20takambo\x20tamba\x20munyika','\x0a*UPLOAD:*\x20','6639420uOEBHC','timestamp','\x0a*VIEWS:*\x20'];_0x3b9c=function(){return _0x638643;};return _0x3b9c();}{if(isBan)throw mess['ban'];if(!text)throw _0x309941(0xe8)+(prefix+command)+_0x309941(0xea);let yts=require(_0x309941(0xf7)),search=await yts(text),no=0x1,sections=[];for(let i of search['all']){const list={'title':''+i[_0x309941(0xe6)],'rows':[{'title':i['title']+'\x0a','rowId':prefix+_0x309941(0xe5)+i['url'],'description':i[_0x309941(0xf0)]+_0x309941(0xeb)+i[_0x309941(0xe3)]+'\x0a*CHANNEL:*\x20'+i['author'][_0x309941(0xe1)]+_0x309941(0xee)+i[_0x309941(0xf1)]+_0x309941(0xf4)+i[_0x309941(0xed)]+_0x309941(0xe4)+i[_0x309941(0xf8)]}]};sections['push'](list);}const sendm=HBModsMd[_0x309941(0xdf)](m[_0x309941(0xe0)],{'text':'\x20'+text,'footer':botname,'title':ucapannya2+'\x20'+pushname+'\x20*Here\x20are\x20the\x20search\x20results\x20from\x20ytsvideo*','buttonText':_0x309941(0xe9),'sections':sections},{'quoted':m});}
                   break
-	     case 'ytmp3': case 'getmusic': case 'ytaudio': {
+	   case 'ytmp3':  case 'ytmusic': {	    
+	            if (isBan) throw mess.ban
                 let { yta } = require('./lib/y2mate')
-                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
+                
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
-                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
-                HBModsMd.sendImage(m.chat, media.thumb, `🎶 Title : ${media.title}\n🎶 File Size : ${media.filesizeF}\n🎶 Url : ${isUrl(text)}\n🎶 Ext : MP3\n🎶 Resolution : ${args[1] || '128kbps'}`, m)
-                HBModsMd.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-            }
+                if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
+                let caption = `
+*⬤⬤BEST MUSIC⬤⬤*
+
+*⬤▶━━━━━━━━━2:30*\n\n*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${isUrl(text)}\n*⬤EXT :* MP3\n*⬤RESOLUTION :* ${args[1] || '128kbps'}\n\n*HBWABot INC*`
+                buf = await getBuffer(media.thumb)
+                HBModsMd.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*Sorry, the link you provided is not valid*'))                
+                HBModsMd.sendMessage(m.chat, {document:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+                title:media.title,
+                body:"YOUTUBE MP3",
+                mediaType:2,
+                thumbnail:buf,
+                mediaUrl:`${text}`, 
+                sourceUrl: `${global.ytchannel}` }}}, {quoted:m})
+                }
             break
-            case 'ytmp4': case 'getvideo': case 'ytvideo': {
+           case 'ytmp4': case 'ytvideo': {
+           if (isBan) throw mess.ban
+                // //if (isLimit(m.sender, isPremium, isCreator, limitCount, limit)) return m.reply(mess.endLimit)            
                 let { ytv } = require('./lib/y2mate')
-                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128p`)
-                let quality = args[1] ? args[1] : '128p'
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
+                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
+                if (!isInventoryLimit){ addInventoriLimit(m.sender) }
+            if (isLimit < 1) return m.reply(mess.endLimit)
+            kurangLimit(m.sender, 1)
+            m.reply(`*1 limit used*`)
+                let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
-                HBModsMd.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `📽️ Title : ${media.title}\n📽️ File Size : ${media.filesizeF}\n📽️ Url : ${isUrl(text)}\n📽️ Ext : MP3\n📽️ Resolution : ${args[1] || '128p'}` }, { quoted: m })
+                if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
+                var capti = `
+*⬤⬤BEST VIDEO⬤⬤*
+
+*⬤▶━━━━━━━━━2:30*\n\n*⬤Title* : ${media.title}\n*⬤FILESIZE* : ${media.filesizeF}\n*⬤URL* : ${isUrl(text)}\n*⬤EXT* : MP3\n*⬤RESOLUTION* : ${args[1] || '360p'}\n\n*HBWABot INC*`
+                var buf = await getBuffer(media.thumb)
+                HBModsMd.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
+                HBModsMd.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*Downloading From ${text}*` }, { quoted: m }).catch((err) => m.reply('*error while sending the video*'))
             }
             break
 	   case 'getmusic': {
@@ -2179,10 +2206,10 @@ case 'ytsvideo': case 'ytsearchvideo': function _0x4c3b(_0x54ae6d,_0x1bd257){con
             if (isLimit < 1) return m.reply(mess.endLimit)
             kurangLimit(m.sender, 1)
             m.reply(`*1 limit used*`)
-                let quality = args[1] ? args[1] : '128p'
+                let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-                HBModsMd.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT:* MP3\n*⬤RESOLUTION :* ${args[1] || '128p'}` }, { quoted: m })
+                HBModsMd.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*⬤TITLE :* ${media.title}\n*⬤FILESIZE :* ${media.filesizeF}\n*⬤URL :* ${urls[text - 1]}\n*⬤EXT:* MP3\n*⬤RESOLUTION :* ${args[1] || '360p'}` }, { quoted: m })
             }
             break
             case 'pinterest': {
@@ -3403,8 +3430,127 @@ typemenu = 'catalog'
 reply("Success Changing Menu To "+q)
 }
 
-                    break 
-                    case 'command': {
+                    break
+                     case 'alivexxx': case 'botxxx':{
+                           	timestampe = speed();
+latensie = speed() - timestampe
+ anu = ` `
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            hydratedContentText: anu,
+                            locationMessage: {
+                            jpegThumbnail: fs.readFileSync('./HBMedia/herbert.jpg')},
+                            hydratedFooterText: `┌─❖
+│「 Hi 👋 」
+└┬
+┌┤「 ${pushname} 」
+│└───────────────┈ ⳹
+│ 「 BOT INFO 」
+│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fiber
+│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
+│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
+└┬──────────────┈ ⳹
+   │✑  Please Select The Button Below
+   └───────────────┈ ⳹`,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: '𝗬𝗼𝘂𝗧𝘂𝗯𝗲',
+                                    url: `${myweb}`
+                                }
+                            }, {
+                            	urlButton: {
+                                displayText: '𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺',
+                                    url: `${sc}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'All Menu',
+                                    id: `${prefix}allmenu`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: 'List Menu',
+                                    id: `${prefix}command`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: 'Owner👤',
+                                    id: `${prefix}owner`
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat })
+                HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                }
+break
+            case 'listxxxx': case 'menuxxx': {
+            	timestampe = speed();
+latensie = speed() - timestampe
+                anu = ``
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            hydratedContentText: anu,
+                            locationMessage: {
+                            jpegThumbnail: fs.readFileSync('./HBMedia/herbert.jpg')}, 
+                            hydratedFooterText: `
+┌─❖
+│「 Hi 👋 」
+└┬❖ 「 ${pushname} 」
+┌┤✑  Hi i Tha maw?😄
+│└───────────────┈ ⳹
+│ 「 BOT INFO 」
+│✙ 𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+│✙ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│✙ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botname}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownername}
+│✙ 𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+│✙ 𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : HBMods Fibre
+│✙ 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : Herbert
+│✙ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
+└┬──────────────┈ ⳹
+   │✑  Please Select The Button Below
+   └───────────────┈ ⳹`,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: '𝗬𝗼𝘂𝗧𝘂𝗯𝗲',
+                                    url: `${myweb}`
+                                }
+                            }, {
+                            	urlButton: {
+                                displayText: '𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺',
+                                    url: `${sc}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'All Menu',
+                                    id: `${prefix}allmenu`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: 'List Menu',
+                                    id: `${prefix}command`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: 'Owner🌚',
+                                    id: `${prefix}owner`
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat })
+                HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                }
+                break
+                case 'command': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hi ${pushname}`,
@@ -3493,7 +3639,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										{
 											"title": "HBMods Menu",
 										"description": "Displays The List Of HBMods Features",
-										"rowId": `${prefix}hbmodsmenu`
+										"rowId": `${prefix}islamicmenu`
 										},
 										{
 											"title": "Horoscope Menu",
@@ -3545,6 +3691,287 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 HBModsMd.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/ZdpqIPO.png' }, caption: `*GBWhatsApp Last version Download*\n https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html \n\nYouTube : ${myweb}\nDont Forget To Subscribe` }, { quoted: m })
             }
             break
+case 'allmenu': {
+  	anu = `
+┏━「 *${botname}* 」━━⭓ 
+┃╔══☯︎「 MAIN 」☯︎
+┃╠🔥${prefix}alive
+┃╠🔥${prefix}gbwhtsapp
+┃╠🔥${prefix}youtubepro
+┃╠🔥${prefix}instagrampro 
+┃╠🔥${prefix}speedtest
+┃╠🔥${prefix}ping
+┃╠🔥${prefix}owner
+┃╠🔥${prefix}menu
+┃╠🔥${prefix}delete
+┃╠🔥${prefix}chatinfo
+┃╠🔥${prefix}quoted
+┃╠🔥${prefix}listpc
+┃╠🔥${prefix}listgc
+┃╠🔥${prefix}donate
+┃╠🔥${prefix}report [bug]
+┃╠══✪「 OWNER 」 ☯︎
+┃╠🔥${prefix}chat [option]
+┃╠🔥${prefix}join [link]
+┃╠🔥${prefix}leave
+┃╠🔥${prefix}block [user]
+┃╠🔥${prefix}unblock [user]
+┃╠🔥${prefix}bcgroup [text]
+┃╠🔥${prefix}bcall [text]
+┃╠🔥${prefix}setppbot [image]
+┃╠🔥${prefix}setexif
+┃╠══✪「 GROUP 」 ☯︎      
+┃╠🔥${prefix}grouplink
+┃╠🔥${prefix}ephemeral [option]
+┃╠🔥${prefix}setgcpp [image]
+┃╠🔥${prefix}setname [text]
+┃╠🔥${prefix}setdesc [text]
+┃╠🔥${prefix}group [text]
+┃╠🔥${prefix}editinfo [option]
+┃╠🔥${prefix}add [user]
+┃╠🔥${prefix}kick [reply/tag]
+┃╠🔥${prefix}hidetag [text]
+┃╠🔥${prefix}tagall [text]
+┃╠🔥${prefix}antilink [on/off]
+┃╠🔥${prefix}mute [on/off]
+┃╠🔥${prefix}promote [reply/tag]
+┃╠🔥${prefix}demote [reply/tag]
+┃╠🔥${prefix}vote
+┃╠🔥${prefix}devote
+┃╠🔥${prefix}upvote
+┃╠🔥${prefix}checkvote
+┃╠🔥${prefix}delvote
+┃╠══☯︎「 RPG 」 ☯︎
+┃╠🔥${prefix}hunting
+┃╠🔥${prefix}mining
+┃╠🔥${prefix}heal
+┃╠🔥${prefix}userlimit
+┃╠🔥${prefix}profile
+┃╠🔥${prefix}inventory
+┃╠🔥${prefix}leaderboard
+┃╠🔥${prefix}buy [option]
+┃╠🔥${prefix}sell [option]
+┃╠═✪「 DOWNLOADER 」☯︎
+┃╠🔥${prefix}ytmp3 [url|quality]
+┃╠🔥${prefix}ytmp4 [url|quality]
+┃╠🔥${prefix}getmusic [yt link]
+┃╠🔥${prefix}getvideo [yt link]
+┃╠🔥${prefix}umma [title]
+┃╠🔥${prefix}joox [title]
+┃╠🔥${prefix}soundcloud [url]
+┃╠══✪「 SEARCHER 」 ☯︎
+┃╠🔥${prefix}play [title]
+┃╠🔥${prefix}song [title]
+┃╠🔥${prefix}yts [title]
+┃╠🔥${prefix}google [title]
+┃╠🔥${prefix}gimage [title]
+┃╠🔥${prefix}pinterest [title]
+┃╠🔥${prefix}wallpaper [title]
+┃╠🔥${prefix}wikimedia [title]
+┃╠🔥${prefix}ytsearch [title]
+┃╠🔥${prefix}ringtone [title]
+┃╠🔥${prefix}webtoon [title]
+┃╠══✪「 RANDOM 」☯︎
+┃╠🔥${prefix}coffee
+┃╠🔥${prefix}animequote (indo)
+┃╠🔥${prefix}couplepp
+┃╠═✪「 RANDOM ANIME 」☯︎
+┃╠🔥${prefix}loli
+┃╠🔥${prefix}bully
+┃╠🔥${prefix}cuddle
+┃╠🔥${prefix}cry
+┃╠🔥${prefix}hug
+┃╠🔥${prefix}awoo
+┃╠🔥${prefix}kiss
+┃╠🔥${prefix}lick
+┃╠🔥${prefix}pat
+┃╠🔥${prefix}smug
+┃╠🔥${prefix}bonk
+┃╠🔥${prefix}yeet
+┃╠🔥${prefix}blush
+┃╠🔥${prefix}smile
+┃╠🔥${prefix}wave
+┃╠🔥${prefix}highfive
+┃╠🔥${prefix}handhold
+┃╠🔥${prefix}nom
+┃╠🔥${prefix}glomp
+┃╠🔥${prefix}bite
+┃╠🔥${prefix}slap
+┃╠🔥${prefix}kill
+┃╠🔥${prefix}happy
+┃╠🔥${prefix}wink
+┃╠🔥${prefix}poke
+┃╠🔥${prefix}dance
+┃╠🔥${prefix}cringe
+┃╠══✪「 FUN 」 ☯︎
+┃╠🔥${prefix}how [text
+┃╠🔥${prefix}when [text]
+┃╠🔥${prefix}is [text]
+┃╠🔥${prefix}what [text]
+┃╠🔥${prefix}can [text]
+┃╠🔥${prefix}rate [text]
+┃╠🔥${prefix}wangy [text]
+┃╠🔥${prefix}beautifulcheck [tag]
+┃╠🔥${prefix}awesomecheck [tag]
+┃╠🔥${prefix}prettycheck [tag]
+┃╠🔥${prefix}lesbiancheck [tag]
+┃╠🔥${prefix}gaycheck [tag]
+┃╠🔥${prefix}cutecheck [tag]
+┃╠🔥${prefix}uglycheck [tag]
+┃╠🔥${prefix}hornycheck [tag]
+┃╠🔥${prefix}charactercheck [tag]
+┃╠🔥${prefix}lovelycheck [tag]
+┃╠🔥${prefix}couple
+┃╠🔥${prefix}mysoulmate
+┃╠🔥${prefix}hot
+┃╠🔥${prefix}sexy
+┃╠🔥${prefix}kind
+┃╠🔥${prefix}idiot
+┃╠🔥${prefix}handsome
+┃╠🔥${prefix}beautiful
+┃╠🔥${prefix}cute
+┃╠🔥${prefix}pretty
+┃╠🔥${prefix}lesbian
+┃╠🔥${prefix}noob
+┃╠🔥${prefix}bastard
+┃╠🔥${prefix}foolish
+┃╠🔥${prefix}nerd
+┃╠🔥${prefix}asshole
+┃╠🔥${prefix}gay
+┃╠🔥${prefix}smart
+┃╠🔥${prefix}stubble
+┃╠🔥${prefix}dog
+┃╠🔥${prefix}horny
+┃╠🔥${prefix}cunt
+┃╠🔥${prefix}wibu
+┃╠🔥${prefix}tictactoe
+┃╠🔥${prefix}delttt
+┃╠🔥${prefix}guess [option]
+┃╠🔥${prefix}math [mode]
+┃╠🔥${prefix}suitpvp [tag]
+┃╠═══✪「 CONVERTER 」 ☯︎
+┃╠🔥${prefix}toimage [reply stick]
+┃╠🔥${prefix}sticker [reply img|gif]
+┃╠🔥${prefix}emojimix [moji+moji]
+┃╠🔥${prefix}tovideo [reply img]
+┃╠🔥${prefix}togif [reply stick]
+┃╠🔥${prefix}tourl [reply img]
+┃╠🔥${prefix}tovn [reply aud]
+┃╠🔥${prefix}tomp3 [reply vn]
+┃╠🔥${prefix}toaudio [reply vid]
+┃╠🔥${prefix}ebinary [reply txt]
+┃╠🔥${prefix}dbinary [reply txt]
+┃╠🔥${prefix}styletext [text]
+┃╠══✪「 DATABASE 」 ☯︎
+┃╠🔥${prefix}setcmd
+┃╠🔥${prefix}listcmd
+┃╠🔥${prefix}delcmd
+┃╠🔥${prefix}lockcmd
+┃╠🔥${prefix}addmsg
+┃╠🔥${prefix}listmsg
+┃╠🔥${prefix}getmsg
+┃╠🔥${prefix}delmsg
+┃╠═✪「 ANONYMOUS CHAT 」☯︎
+┃╠🔥${prefix}anonymous
+┃╠🔥${prefix}start
+┃╠🔥${prefix}next
+┃╠🔥${prefix}leave
+┃╠═✪「 VOICE CHANGER 」☯︎
+┃╠🔥${prefix}bass [reply aud]
+┃╠🔥${prefix}blown [reply aud]
+┃╠🔥${prefix}deep [reply aud]
+┃╠🔥${prefix}earrape [reply aud]
+┃╠🔥${prefix}fast [reply aud]
+┃╠🔥${prefix}fat [reply aud]
+┃╠🔥${prefix}nightcore [reply aud]
+┃╠🔥${prefix}reverse [reply aud]
+┃╠🔥${prefix}robot [reply aud]
+┃╠🔥${prefix}slow [reply aud]
+┃╠🔥${prefix}squirrel [reply aud]
+┃╠══✪「 HBMods menu」☯︎
+┃╠🔥${prefix}instagrampro
+┃╠🔥${prefix}youtubepro
+┃╠🔥${prefix}gbwhatsapp
+┃╠══✪「 HOROSCOPE 」☯︎
+┃╠🔥${prefix}nomorhoki (DOB)
+┃╠🔥${prefix}artimimpi (DOB)
+┃╠🔥${prefix}artinama (DOB)
+┃╠🔥${prefix}ramaljodoh (DOB)
+┃╠🔥${prefix}ramaljodohbali (DOB)
+┃╠🔥${prefix}suamiistri (DOB)
+┃╠🔥${prefix}ramalcinta (DOB)
+┃╠🔥${prefix}cocoknama (DOB)
+┃╠🔥${prefix}pasangan (DOB)
+┃╠🔥${prefix}jadiannikah (DOB)
+┃╠🔥${prefix}sifatusaha (DOB)
+┃╠🔥${prefix}rezeki (DOB)
+┃╠🔥${prefix}pekerjaan (DOB)
+┃╠🔥${prefix}nasib (DOB)
+┃╠🔥${prefix}penyakit (DOB)
+┃╠🔥${prefix}tarot (DOB)
+┃╠🔥${prefix}fengshui (DOB)
+┃╠🔥${prefix}haribaik (DOB)
+┃╠🔥${prefix}harisangar (DOB)
+┃╠🔥${prefix}harisial (DOB)
+┃╠🔥${prefix}nagahari (DOB)
+┃╠🔥${prefix}arahrezeki (DOB)
+┃╠🔥${prefix}peruntungan (DOB)
+┃╠🔥${prefix}weton (DOB)
+┃╠🔥${prefix}karakter (DOB)
+┃╠🔥${prefix}keberuntungan (DOB)
+┃╠🔥${prefix}memancing (DOB)
+┃╠🔥${prefix}masasubur (DOB)
+┃╠🔥${prefix}zodiak (DOB)
+┃╠🔥${prefix}shio (DOB)
+┃╚═══════✍︎𝓗𝓮𝓻𝓫𝓮𝓻𝓽 𝓢𝓾𝓪𝓷𝓽𝓪𝓴
+┗━「 *Created By ${ownername}* 𖠌」━⭓`
+    const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            hydratedContentText: anu,
+                            locationMessage: {
+                            jpegThumbnail: fs.readFileSync('./HBMedia/herbert.jpg')},
+                            hydratedFooterText: `${pushname}`,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: '𝗬𝗼𝘂𝗧𝘂𝗯𝗲',
+                                    url: `${myweb}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Owner👤',
+                                    id: `${prefix}owner`
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat })
+                HBModsMd.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+break
+case 'mainmenu':
+var unicorn = await getBuffer(picak+'Main Menu')
+await HBModsMd.send5ButImg(from, `` + '' + ' ', `
+┏━「 ${botname} 」━━⭓ 
+┃╔═✪「 MAIN 」
+┃╠🔥${prefix}alive
+┃╠🔥${prefix}gbwhtsapp
+┃╠🔥${prefix}youtubepro
+┃╠🔥${prefix}instagrampro
+┃╠🔥${prefix}speedtest
+┃╠🔥${prefix}ping
+┃╠🔥${prefix}owner
+┃╠🔥${prefix}menu
+┃╠🔥${prefix}delete
+┃╠🔥${prefix}chatinfo
+┃╠🔥${prefix}quoted
+┃╠🔥${prefix}listpc
+┃╠🔥${prefix}listgc
+┃╠🔥${prefix}donate
+┃╠🔥${prefix}report [bug]
+┃╚═════════════✪
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","url": 'owner'}}] )
+break
 
 case 'grupmenu': case 'groupmenu':
 var unicorn = await getBuffer(picak+'Group Menu')
@@ -3839,7 +4266,7 @@ await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┃╚═════════════✪
 ┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
-case 'hbmodsmenu':
+case 'islamicmenu':
 var unicorn = await getBuffer(picak+'HBMods Menu')
 await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┏━「 ${botname} 」━━⭓ 
@@ -3848,12 +4275,7 @@ await HBModsMd.send5ButImg(from, `` + '' + ' ', `
 ┃╠🔥${prefix}instagrampro
 ┃╠🔥${prefix}gbwhtsapp
 ┃╚═════════════✪
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗛𝗕𝗠𝗼𝗱𝘀 𝗔𝗣𝗞 𝗦𝘁𝗼𝗿𝗲","url": `https://herbert70.blogspot.com`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
-break
-case 'gb': case 'gbwa': case 'gbwhatsapp':
-var unicorn = await getBuffer(picak+'GBWhatsApp')
-await HBModsMd.send5ButImg(from, `` + '' + ' ', `${pushname} GBWhatsApp Last Version
-Download`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`}},{"urlButton": {"displayText": "𝗛𝗕𝗠𝗼𝗱𝘀 𝗔𝗣𝗞 𝗦𝘁𝗼𝗿𝗲","url": `https://herbert70.blogspot.com`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
 case 'voicechangermenu':
 var unicorn = await getBuffer(picak+'Voice Changer Menu')
@@ -3919,242 +4341,6 @@ Thanks to Me (HBWABOT)
 Alien-Alfa (For helping me to deploy qr in replit and answered my every doubts regard this project)
 DGXeon ( 45% Credits goes to him ,in this script)
 And Again Me (HBMods) 🌚 Who Helped Assemble This Sexy Script !!!`,unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
-break
-case 'allmenu':
-var unicorn = await getBuffer(picak+'allmenu')
-await HBModsMd.send5ButImg(from, `` + '' + ' ', `
-┏━「 *${botname}* 」━━⭓ 
-┃╔══☯︎「 MAIN 」☯︎
-┃╠🔥${prefix}alive
-┃╠🔥${prefix}gbwhtsapp
-┃╠🔥${prefix}youtubepro
-┃╠🔥${prefix}instagrampro 
-┃╠🔥${prefix}speedtest
-┃╠🔥${prefix}ping
-┃╠🔥${prefix}owner
-┃╠🔥${prefix}menu
-┃╠🔥${prefix}delete
-┃╠🔥${prefix}chatinfo
-┃╠🔥${prefix}quoted
-┃╠🔥${prefix}listpc
-┃╠🔥${prefix}listgc
-┃╠🔥${prefix}donate
-┃╠🔥${prefix}report [bug]
-┃╠══✪「 OWNER 」 ☯︎
-┃╠🔥${prefix}chat [option]
-┃╠🔥${prefix}join [link]
-┃╠🔥${prefix}leave
-┃╠🔥${prefix}block [user]
-┃╠🔥${prefix}unblock [user]
-┃╠🔥${prefix}bcgroup [text]
-┃╠🔥${prefix}bcall [text]
-┃╠🔥${prefix}setppbot [image]
-┃╠🔥${prefix}setexif
-┃╠══✪「 GROUP 」 ☯︎      
-┃╠🔥${prefix}grouplink
-┃╠🔥${prefix}ephemeral [option]
-┃╠🔥${prefix}setgcpp [image]
-┃╠🔥${prefix}setname [text]
-┃╠🔥${prefix}setdesc [text]
-┃╠🔥${prefix}group [text]
-┃╠🔥${prefix}editinfo [option]
-┃╠🔥${prefix}add [user]
-┃╠🔥${prefix}kick [reply/tag]
-┃╠🔥${prefix}hidetag [text]
-┃╠🔥${prefix}tagall [text]
-┃╠🔥${prefix}antilink [on/off]
-┃╠🔥${prefix}mute [on/off]
-┃╠🔥${prefix}promote [reply/tag]
-┃╠🔥${prefix}demote [reply/tag]
-┃╠🔥${prefix}vote
-┃╠🔥${prefix}devote
-┃╠🔥${prefix}upvote
-┃╠🔥${prefix}checkvote
-┃╠🔥${prefix}delvote
-┃╠══☯︎「 RPG 」 ☯︎
-┃╠🔥${prefix}hunting
-┃╠🔥${prefix}mining
-┃╠🔥${prefix}heal
-┃╠🔥${prefix}userlimit
-┃╠🔥${prefix}profile
-┃╠🔥${prefix}inventory
-┃╠🔥${prefix}leaderboard
-┃╠🔥${prefix}buy [option]
-┃╠🔥${prefix}sell [option]
-┃╠═✪「 DOWNLOADER 」☯︎
-┃╠🔥${prefix}ytmp3 [url|quality]
-┃╠🔥${prefix}ytmp4 [url|quality]
-┃╠🔥${prefix}getmusic [yt link]
-┃╠🔥${prefix}getvideo [yt link]
-┃╠🔥${prefix}umma [title]
-┃╠🔥${prefix}joox [title]
-┃╠🔥${prefix}soundcloud [url]
-┃╠══✪「 SEARCHER 」 ☯︎
-┃╠🔥${prefix}play [title]
-┃╠🔥${prefix}song [title]
-┃╠🔥${prefix}yts [title]
-┃╠🔥${prefix}google [title]
-┃╠🔥${prefix}gimage [title]
-┃╠🔥${prefix}pinterest [title]
-┃╠🔥${prefix}wallpaper [title]
-┃╠🔥${prefix}wikimedia [title]
-┃╠🔥${prefix}ytsearch [title]
-┃╠🔥${prefix}ringtone [title]
-┃╠🔥${prefix}webtoon [title]
-┃╠══✪「 RANDOM 」☯︎
-┃╠🔥${prefix}coffee
-┃╠🔥${prefix}animequote (indo)
-┃╠🔥${prefix}couplepp
-┃╠═✪「 RANDOM ANIME 」☯︎
-┃╠🔥${prefix}loli
-┃╠🔥${prefix}bully
-┃╠🔥${prefix}cuddle
-┃╠🔥${prefix}cry
-┃╠🔥${prefix}hug
-┃╠🔥${prefix}awoo
-┃╠🔥${prefix}kiss
-┃╠🔥${prefix}lick
-┃╠🔥${prefix}pat
-┃╠🔥${prefix}smug
-┃╠🔥${prefix}bonk
-┃╠🔥${prefix}yeet
-┃╠🔥${prefix}blush
-┃╠🔥${prefix}smile
-┃╠🔥${prefix}wave
-┃╠🔥${prefix}highfive
-┃╠🔥${prefix}handhold
-┃╠🔥${prefix}nom
-┃╠🔥${prefix}glomp
-┃╠🔥${prefix}bite
-┃╠🔥${prefix}slap
-┃╠🔥${prefix}kill
-┃╠🔥${prefix}happy
-┃╠🔥${prefix}wink
-┃╠🔥${prefix}poke
-┃╠🔥${prefix}dance
-┃╠🔥${prefix}cringe
-┃╠══✪「 FUN 」 ☯︎
-┃╠🔥${prefix}how [text
-┃╠🔥${prefix}when [text]
-┃╠🔥${prefix}is [text]
-┃╠🔥${prefix}what [text]
-┃╠🔥${prefix}can [text]
-┃╠🔥${prefix}rate [text]
-┃╠🔥${prefix}wangy [text]
-┃╠🔥${prefix}beautifulcheck [tag]
-┃╠🔥${prefix}awesomecheck [tag]
-┃╠🔥${prefix}prettycheck [tag]
-┃╠🔥${prefix}lesbiancheck [tag]
-┃╠🔥${prefix}gaycheck [tag]
-┃╠🔥${prefix}cutecheck [tag]
-┃╠🔥${prefix}uglycheck [tag]
-┃╠🔥${prefix}hornycheck [tag]
-┃╠🔥${prefix}charactercheck [tag]
-┃╠🔥${prefix}lovelycheck [tag]
-┃╠🔥${prefix}couple
-┃╠🔥${prefix}mysoulmate
-┃╠🔥${prefix}hot
-┃╠🔥${prefix}sexy
-┃╠🔥${prefix}kind
-┃╠🔥${prefix}idiot
-┃╠🔥${prefix}handsome
-┃╠🔥${prefix}beautiful
-┃╠🔥${prefix}cute
-┃╠🔥${prefix}pretty
-┃╠🔥${prefix}lesbian
-┃╠🔥${prefix}noob
-┃╠🔥${prefix}bastard
-┃╠🔥${prefix}foolish
-┃╠🔥${prefix}nerd
-┃╠🔥${prefix}asshole
-┃╠🔥${prefix}gay
-┃╠🔥${prefix}smart
-┃╠🔥${prefix}stubble
-┃╠🔥${prefix}dog
-┃╠🔥${prefix}horny
-┃╠🔥${prefix}cunt
-┃╠🔥${prefix}wibu
-┃╠🔥${prefix}tictactoe
-┃╠🔥${prefix}delttt
-┃╠🔥${prefix}guess [option]
-┃╠🔥${prefix}math [mode]
-┃╠🔥${prefix}suitpvp [tag]
-┃╠═══✪「 CONVERTER 」 ☯︎
-┃╠🔥${prefix}toimage [reply stick]
-┃╠🔥${prefix}sticker [reply img|gif]
-┃╠🔥${prefix}emojimix [moji+moji]
-┃╠🔥${prefix}tovideo [reply img]
-┃╠🔥${prefix}togif [reply stick]
-┃╠🔥${prefix}tourl [reply img]
-┃╠🔥${prefix}tovn [reply aud]
-┃╠🔥${prefix}tomp3 [reply vn]
-┃╠🔥${prefix}toaudio [reply vid]
-┃╠🔥${prefix}ebinary [reply txt]
-┃╠🔥${prefix}dbinary [reply txt]
-┃╠🔥${prefix}styletext [text]
-┃╠══✪「 DATABASE 」 ☯︎
-┃╠🔥${prefix}setcmd
-┃╠🔥${prefix}listcmd
-┃╠🔥${prefix}delcmd
-┃╠🔥${prefix}lockcmd
-┃╠🔥${prefix}addmsg
-┃╠🔥${prefix}listmsg
-┃╠🔥${prefix}getmsg
-┃╠🔥${prefix}delmsg
-┃╠═✪「 ANONYMOUS CHAT 」☯︎
-┃╠🔥${prefix}anonymous
-┃╠🔥${prefix}start
-┃╠🔥${prefix}next
-┃╠🔥${prefix}leave
-┃╠═✪「 VOICE CHANGER 」☯︎
-┃╠🔥${prefix}bass [reply aud]
-┃╠🔥${prefix}blown [reply aud]
-┃╠🔥${prefix}deep [reply aud]
-┃╠🔥${prefix}earrape [reply aud]
-┃╠🔥${prefix}fast [reply aud]
-┃╠🔥${prefix}fat [reply aud]
-┃╠🔥${prefix}nightcore [reply aud]
-┃╠🔥${prefix}reverse [reply aud]
-┃╠🔥${prefix}robot [reply aud]
-┃╠🔥${prefix}slow [reply aud]
-┃╠🔥${prefix}squirrel [reply aud]
-┃╠══✪「 HBMods menu」☯︎
-┃╠🔥${prefix}instagrampro
-┃╠🔥${prefix}youtubepro
-┃╠🔥${prefix}gbwhatsapp
-┃╠══✪「 HOROSCOPE 」☯︎
-┃╠🔥${prefix}nomorhoki (DOB)
-┃╠🔥${prefix}artimimpi (DOB)
-┃╠🔥${prefix}artinama (DOB)
-┃╠🔥${prefix}ramaljodoh (DOB)
-┃╠🔥${prefix}ramaljodohbali (DOB)
-┃╠🔥${prefix}suamiistri (DOB)
-┃╠🔥${prefix}ramalcinta (DOB)
-┃╠🔥${prefix}cocoknama (DOB)
-┃╠🔥${prefix}pasangan (DOB)
-┃╠🔥${prefix}jadiannikah (DOB)
-┃╠🔥${prefix}sifatusaha (DOB)
-┃╠🔥${prefix}rezeki (DOB)
-┃╠🔥${prefix}pekerjaan (DOB)
-┃╠🔥${prefix}nasib (DOB)
-┃╠🔥${prefix}penyakit (DOB)
-┃╠🔥${prefix}tarot (DOB)
-┃╠🔥${prefix}fengshui (DOB)
-┃╠🔥${prefix}haribaik (DOB)
-┃╠🔥${prefix}harisangar (DOB)
-┃╠🔥${prefix}harisial (DOB)
-┃╠🔥${prefix}nagahari (DOB)
-┃╠🔥${prefix}arahrezeki (DOB)
-┃╠🔥${prefix}peruntungan (DOB)
-┃╠🔥${prefix}weton (DOB)
-┃╠🔥${prefix}karakter (DOB)
-┃╠🔥${prefix}keberuntungan (DOB)
-┃╠🔥${prefix}memancing (DOB)
-┃╠🔥${prefix}masasubur (DOB)
-┃╠🔥${prefix}zodiak (DOB)
-┃╠🔥${prefix}shio (DOB)
-┃╚═══════✍︎𝓗𝓮𝓻𝓫𝓮𝓻𝓽 𝓢𝓾𝓪𝓷𝓽𝓪𝓴
-┗━「 *Created By ${ownername}* 𖠌」━⭓',unicorn, [{"urlButton": {"displayText": "𝗬𝗼𝘂𝗧𝘂𝗯𝗲","url": `${myweb}`}},{"urlButton": {"displayText": "𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner👤","id": 'owner'}}] )
 break
 case 'menu': case 'help': case 'alive':
 var unicorn = await getBuffer(picak+'HBWABot')
